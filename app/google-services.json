@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "620098180182",
+    "firebase_url": "https://kirapp-a2f50-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "kirapp-a2f50",
+    "storage_bucket": "kirapp-a2f50.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:620098180182:android:a0356f36400bcd0cd157f7",
+        "android_client_info": {
+          "package_name": "com.example.kirapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "620098180182-fi6eriv3o62svhe6bh6acoh2n9p8bbhb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApnQlDQ3WCA4vTys51GmvrZZkFOmCQZrM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "620098180182-fi6eriv3o62svhe6bh6acoh2n9p8bbhb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
