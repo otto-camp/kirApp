@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/activity_main.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/gradient_background.xml" value="0.22" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/frame_list_row.xml" value="0.2552083333333333" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/list_row.xml" value="0.33" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/login_page.xml" value="0.25" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/main_page.xml" value="0.2552083333333333" />
       </map>
@@ -14,5 +17,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.33" />
+      </ProjectState>
+    </option>
   </component>
 </project>

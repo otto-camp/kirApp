@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="greyish_blue">#FFA0B5BC</color>
-    <color name="light_blue">#FFC0DFE9</color>
-    <color name="dark_blue">#FF003459</color>
-    <color name="rich_black">#FF00171F</color>
-    <color name="grey">#FF808B8F</color>
+    <color name="copper_crayola">#FFDD7F5A</color>
+    <color name="old_rose">#FFBE7679</color>
+    <color name="lavender">#FFAF7288</color>
+    <color name="pearly_purple">#FF9F6D98</color>
+    <color name="majesty_purple">#FF9069A7</color>
+    <color name="state_blue">#FF615BD6</color>
+    <color name="majorelle_blue">#FF5257E5</color>
+    <color name="dark_blue">#FF090A19</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

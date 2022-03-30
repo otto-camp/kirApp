@@ -5,4 +5,5 @@
     <string name="login_placeholder">Login</string>
     <string name="login_image_description">login logo</string>
     <string name="forgot_password_placeholder">Forgot Password</string>
+    <string name="customer_image_description">Customer image</string>
 </resources>
