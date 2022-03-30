@@ -6,4 +6,6 @@
     <string name="login_image_description">login logo</string>
     <string name="forgot_password_placeholder">Forgot Password</string>
     <string name="customer_image_description">Customer image</string>
+    <string name="register">Register</string>
+    <string name="icon_3">icon_3</string>
 </resources>
