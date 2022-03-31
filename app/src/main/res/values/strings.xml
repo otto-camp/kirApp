@@ -1,11 +1,17 @@
 <resources>
     <string name="app_name">kirApp</string>
-    <string name="email_placeholder">Email:</string>
-    <string name="password_placeholder">Password:</string>
+    <string name="email_placeholder">Email</string>
+    <string name="password_placeholder">Password</string>
     <string name="login_placeholder">Login</string>
     <string name="login_image_description">login logo</string>
     <string name="forgot_password_placeholder">Forgot Password</string>
     <string name="customer_image_description">Customer image</string>
     <string name="register">Register</string>
     <string name="icon_3">icon_3</string>
+    <string name="register_form">REGISTER FORM</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="phone">Phone Number</string>
+    <string name="identity_number">IdentityNumber</string>
+    <string name="birth_date">Birth Date</string>
 </resources>
