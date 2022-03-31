@@ -14,4 +14,9 @@
     <string name="phone">Phone Number</string>
     <string name="identity_number">IdentityNumber</string>
     <string name="birth_date">Birth Date</string>
+    <string name="search">Search</string>
+    <string name="messages">Messages</string>
+    <string name="profile">Profile</string>
+    <string name="main_page">Main Page</string>
+    <string name="search">Search</string>
 </resources>
