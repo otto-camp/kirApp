@@ -1,9 +1,11 @@
-package com.example.kirapp;
+package com.example.kirapp.activities;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.kirapp.R;
 import com.example.kirapp.fragments.MainPageFragment;
 import com.example.kirapp.fragments.ProfileFragment;
 import com.example.kirapp.fragments.SearchFragment;
@@ -13,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout, new MainPageFragment()).commit();
         bottomNavigationView.setSelectedItemId(R.id.mainPageFragment);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+        bottomNavigationView.setOnItemSelectedListener(item -> {
             Fragment fragment = null;
             switch (item.getItemId()){
                 case R.id.mainPageFragment:

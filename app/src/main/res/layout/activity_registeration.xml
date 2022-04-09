@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".activities.RegisterActivity">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="128dp"
+        android:layout_height="256dp"
+        android:contentDescription="@string/app_name"
         app:srcCompat="@mipmap/ic_blue_1_foreground"
-        android:contentDescription="@string/app_name" />
+        tools:ignore="ImageContrastCheck" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -55,7 +58,11 @@
                 android:layout_height="64dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:cursorVisible="false"
                 android:ems="10"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 android:hint="@string/birth_date"
                 android:importantForAutofill="no"
                 android:inputType="date"
@@ -89,31 +96,35 @@
                 android:textColor="@color/white"
                 android:textColorHint="@color/white" />
 
-            <EditText
-                android:id="@+id/customer_identity_number"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="@string/identity_number"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white" />
+                android:layout_marginEnd="16dp">
 
-            <EditText
-                android:id="@+id/customer_phone"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="@string/phone"
-                android:importantForAutofill="no"
-                android:inputType="phone"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white" />
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/ccp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:ccp_arrowColor="@color/white"
+                    app:ccp_autoDetectCountry="true"
+                    app:ccp_contentColor="@color/white"
+                    app:ccp_countryAutoDetectionPref="SIM_LOCALE_NETWORK"
+                    app:ccp_showFlag="true"
+                    app:ccp_textGravity="LEFT" />
+
+                <EditText
+                    android:id="@+id/customer_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:ems="10"
+                    android:hint="@string/phone"
+                    android:importantForAutofill="no"
+                    android:inputType="phone"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+            </LinearLayout>
+
 
             <Button
                 android:layout_width="wrap_content"

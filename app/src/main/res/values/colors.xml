@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="copper_crayola">#FFDD7F5A</color>
-    <color name="old_rose">#FFBE7679</color>
+    <color name="copper_crayola">#FFFDCD4D</color>
+    <color name="old_rose">#FFF178AF</color>
     <color name="lavender">#FFAF7288</color>
     <color name="pearly_purple">#FF9F6D98</color>
     <color name="majesty_purple">#FF9069A7</color>
@@ -13,4 +13,8 @@
     <color name="light_bg">#1AFFFFFF</color>
     <color name="light_state_blue">#1A615BD6</color>
     <color name="light_majorelle_blue">#1A5257E5</color>
+    <color name="kpp_bg">#FF1B1D39</color>
+    <color name="kpp_mst">#FFF8B551</color>
+    <color name="kpp_plt">#FFF79158</color>
+    <color name="kpp_sky">#FF4B72FF</color>
 </resources>

@@ -9,5 +9,4 @@ public class Advert {
     private String description;
     private double price;
     private boolean status;
-    //Customer ile bağlantısı yapılacak
 }
