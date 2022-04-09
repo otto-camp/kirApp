@@ -10,4 +10,7 @@
     <color name="dark_blue">#FF090A19</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="light_bg">#1AFFFFFF</color>
+    <color name="light_state_blue">#1A615BD6</color>
+    <color name="light_majorelle_blue">#1A5257E5</color>
 </resources>

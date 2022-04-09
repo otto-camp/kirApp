@@ -9,8 +9,8 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="256dp"
-        android:contentDescription="@string/icon_3"
-        android:src="@mipmap/ic_blue_3_foreground" />
+        android:contentDescription="@string/app_name"
+        android:src="@mipmap/ic_blue_1_foreground" />
 
     <EditText
         android:id="@+id/text_email"
