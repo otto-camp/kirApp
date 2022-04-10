@@ -9,7 +9,7 @@
     tools:context=".activities.RegisterActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/image_logo"
         android:layout_width="match_parent"
         android:layout_height="256dp"
         android:contentDescription="@string/app_name"
@@ -26,7 +26,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/customer_firstname"
+                android:id="@+id/user_firstname"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:layout_marginStart="16dp"
@@ -40,7 +40,7 @@
                 android:textColorHint="@color/white" />
 
             <EditText
-                android:id="@+id/customer_lastname"
+                android:id="@+id/user_lastname"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:layout_marginStart="16dp"
@@ -53,7 +53,7 @@
                 android:textColorHint="@color/white" />
 
             <EditText
-                android:id="@+id/customer_birthdate"
+                android:id="@+id/user_birthdate"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:layout_marginStart="16dp"
@@ -70,20 +70,7 @@
                 android:textColorHint="@color/white" />
 
             <EditText
-                android:id="@+id/customer_password"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="@string/password_placeholder"
-                android:importantForAutofill="no"
-                android:inputType="textPassword"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white" />
-
-            <EditText
-                android:id="@+id/customer_email"
+                android:id="@+id/user_email"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:layout_marginStart="16dp"
@@ -95,6 +82,20 @@
                 android:minHeight="48dp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white" />
+
+            <EditText
+                android:id="@+id/user_password"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:hint="@string/password_placeholder"
+                android:importantForAutofill="no"
+                android:inputType="textPassword"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -110,11 +111,12 @@
                     app:ccp_autoDetectCountry="true"
                     app:ccp_contentColor="@color/white"
                     app:ccp_countryAutoDetectionPref="SIM_LOCALE_NETWORK"
+                    app:ccp_defaultPhoneCode="90"
                     app:ccp_showFlag="true"
                     app:ccp_textGravity="LEFT" />
 
                 <EditText
-                    android:id="@+id/customer_phone"
+                    android:id="@+id/user_phone"
                     android:layout_width="match_parent"
                     android:layout_height="64dp"
                     android:ems="10"
@@ -125,12 +127,49 @@
                     android:textColorHint="@color/white" />
             </LinearLayout>
 
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/male"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/radio_female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    android:text="@string/female"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/radio_other"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    android:text="@string/other"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+            </RadioGroup>
 
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginStart="64dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="64dp"
                 android:backgroundTint="@color/state_blue"
                 android:text="@string/register"
                 android:textColor="@color/white" />

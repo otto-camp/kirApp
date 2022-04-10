@@ -5,7 +5,8 @@ import java.time.LocalDate;
 public class Advert {
     private String id;
     private String name;
-    private LocalDate publishDate;
+    private LocalDate createdAt;
+    private LocalDate updatedAt;
     private String description;
     private double price;
     private boolean status;

@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_blue_2_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KirApp">
+        <activity android:name=".activities.LoginActivity"
+            android:parentActivityName=".activities.MainActivity">
+        </activity>
         <activity
             android:name=".activities.MainActivity"
             android:exported="true">
@@ -18,7 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

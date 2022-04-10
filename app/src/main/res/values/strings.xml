@@ -2,10 +2,10 @@
     <string name="app_name">kirApp</string>
     <string name="email_placeholder">Email</string>
     <string name="password_placeholder">Password</string>
-    <string name="login_placeholder">Login</string>
-    <string name="forgot_password_placeholder">Forgot Password</string>
+    <string name="login_placeholder">LOGIN</string>
+    <string name="forgot_password_placeholder">FORGOT PASSWORD</string>
     <string name="user">User</string>
-    <string name="register">Register</string>
+    <string name="register">REGISTER</string>
     <string name="icon_3">icon_3</string>
     <string name="name">Name</string>
     <string name="surname">Surname</string>
@@ -16,4 +16,7 @@
     <string name="messages">Messages</string>
     <string name="profile">Profile</string>
     <string name="main_page">Main Page</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="other">Other</string>
 </resources>

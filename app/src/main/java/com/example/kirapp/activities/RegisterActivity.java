@@ -22,7 +22,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registeration);
 
-        editText = findViewById(R.id.customer_birthdate);
+        editText = findViewById(R.id.user_birthdate);
         DatePickerDialog.OnDateSetListener dateSetListener = (datePicker, year, month, day) -> {
             calendar.set(Calendar.YEAR, year);
             calendar.set(Calendar.MONTH, month);
