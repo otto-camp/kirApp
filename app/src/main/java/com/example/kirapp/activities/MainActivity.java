@@ -3,6 +3,7 @@ package com.example.kirapp.activities;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,12 +25,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Button button = findViewById(R.id.myBtn);
+        button.setOnClickListener(view -> {
+            startActivity(new Intent(MainActivity.this, RegisterActivity.class));
+            finish();
+        });
+
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout, new MainPageFragment()).commit();
         bottomNavigationView.setSelectedItemId(R.id.mainPageFragment);
         bottomNavigationView.setOnItemSelectedListener(item -> {
             Fragment fragment = null;
-            switch (item.getItemId()){
+            switch (item.getItemId()) {
                 case R.id.mainPageFragment:
                     fragment = new MainPageFragment();
                     break;
@@ -41,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
             assert fragment != null;
-            getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout,fragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout, fragment).commit();
             return true;
         });
 

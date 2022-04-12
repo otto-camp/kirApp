@@ -5,65 +5,93 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="1"
-    android:background="@color/majorelle_blue"
     tools:context=".fragments.ProfileFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:background="@color/kpp_bg">
+        android:layout_height="match_parent"
+        android:background="@color/sapphire_500"
+        tools:ignore="UselessParent">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/user_image"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:adjustViewBounds="true"
-            android:layout_margin="16dp"
-            android:maxWidth="150dp"
-            android:maxHeight="150dp"
-            android:scaleType="fitXY"
-            app:shapeAppearanceOverlay="@style/imageViewRounded"
-            tools:src="@mipmap/ic_blue_2_round" />
-
-        <TextView
-            android:id="@+id/user_name"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:id="@+id/profile_header"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/user_image"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="16dp"
-            android:text="@string/app_name"
-            android:textColor="@color/white"
-            android:textSize="28sp" />
+            android:layout_alignParentTop="true"
+            android:background="@color/green_800">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/user_image"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="16dp"
+                android:adjustViewBounds="true"
+                android:maxWidth="150dp"
+                android:maxHeight="150dp"
+                android:scaleType="fitXY"
+                app:shapeAppearanceOverlay="@style/imageViewRounded"
+                tools:src="@mipmap/ic_blue_2_round" />
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/user_image"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="16dp"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="32sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/user_name"
+                android:layout_centerHorizontal="true">
+
+                <TextView
+                    android:id="@+id/user_advert_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/myUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+        </RelativeLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/user_name"
-            android:layout_centerHorizontal="true">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/profile_header"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/user_advert_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            android:layout_margin="8dp"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/profile_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:backgroundTint="@color/black_100"
+                android:text="@string/edit_profile"
+                android:textAllCaps="false"
+                android:textSize="22sp"
+                app:cornerRadius="10dp" />
 
-        <TextView
-            android:id="@+id/myUser"
-            android:layout_width="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textColor="@color/white"
-            android:textSize="12sp" />
         </LinearLayout>
-
     </RelativeLayout>
-
 
 </FrameLayout>

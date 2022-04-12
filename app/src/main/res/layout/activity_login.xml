@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
+    android:background="@color/sapphire_800"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context=".activities.LoginActivity">
@@ -44,8 +44,8 @@
         android:id="@+id/login_btn"
         android:layout_width="192dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/blue_600"
         android:text="@string/login_placeholder"
-        android:textColor="@color/white"
         android:textSize="24sp" />
 
     <LinearLayout
