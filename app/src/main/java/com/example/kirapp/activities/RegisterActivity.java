@@ -3,6 +3,7 @@ package com.example.kirapp.activities;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -12,35 +13,43 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.kirapp.R;
 import com.example.kirapp.models.Customer;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Locale;
+import java.util.Objects;
 
 public class RegisterActivity extends AppCompatActivity {
     private final Calendar calendar = Calendar.getInstance();
+    private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("customers");
+    LocalDate localDate = LocalDate.now();
     private EditText etBirthDate, etFname, etLname, etEmail, etPassword, etPhoneNumber;
     private RadioGroup etGender;
     private RadioButton radioButton;
-    private Customer customer;
+    private String g;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registeration);
 
+        Button button = findViewById(R.id.register_btn);
+        button.setOnClickListener(this::register);
+
         datePicker();
         viewInit();
     }
 
-    public void register(View view){
-        if (validateInput()){
-            customer.setFirstname(etFname.getText().toString());
-            customer.setLastname(etLname.getText().toString());
-            customer.setBirthDate(etBirthDate.getText().toString());
-            customer.setEmail(etEmail.getText().toString());
-            customer.setPassword(etPassword.getText().toString());
-            customer.setPhoneNumber(etPhoneNumber.getText().toString());
+    public void register(View view) {
+        if (validateInput()) {
+            String id = databaseReference.push().getKey();
+            Customer customer = new Customer(id, etFname.getText().toString(), etLname.getText().toString(),
+                    etEmail.getText().toString(), etPassword.getText().toString(), etBirthDate.getText().toString(),
+                    etPhoneNumber.getText().toString(), g, true, localDate, localDate);
+            databaseReference.child(Objects.requireNonNull(id)).setValue(customer);
         }
     }
 
@@ -92,7 +101,8 @@ public class RegisterActivity extends AppCompatActivity {
                     radioButton.setText(R.string.other);
                 }
                 if (radioButton.getId() == i) {
-                    customer.setGender(radioButton.getText().toString());
+                    g = radioButton.getText().toString();
+
                 }
             }
         });
