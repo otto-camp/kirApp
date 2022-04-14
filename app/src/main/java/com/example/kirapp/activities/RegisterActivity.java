@@ -40,6 +40,10 @@ public class RegisterActivity extends AppCompatActivity {
     private String g;
     private FirebaseAuth auth;
 
+    public RegisterActivity() {
+
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
         button.setOnClickListener(this::register);
 
         datePicker();
+        getSupportActionBar().hide();
     }
 
     public void register(View view) {
