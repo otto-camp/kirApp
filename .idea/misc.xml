@@ -14,8 +14,10 @@
         <entry key="..\:/Users/Administrator/StudioProjects/kirApp/app/src/main/res/layout/user_profile.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Administrator/StudioProjects/kirApp/app/src/main/res/menu/bottom_navbar.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2605" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/bg_layout.xml" value="0.2415" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/gradient_background.xml" value="0.22" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/ic_blue_1_background.xml" value="0.2605" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/ic_google.xml" value="0.18" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/ic_green_1_background.xml" value="0.2605" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/ic_green_2_background.xml" value="0.2605" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/ic_green_sphere_background.xml" value="0.2605" />
@@ -29,7 +31,7 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/activity_registeration.xml" value="0.33" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/asd.xml" value="0.19794784095767423" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/fragment_main_page.xml" value="0.25" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/fragment_search.xml" value="0.33" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/frame_list_row.xml" value="0.2552083333333333" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/list_row.xml" value="0.33" />

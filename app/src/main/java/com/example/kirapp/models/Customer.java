@@ -1,5 +1,7 @@
 package com.example.kirapp.models;
 
+import androidx.annotation.NonNull;
+
 import java.time.LocalDate;
 
 public class Customer {
@@ -12,11 +14,11 @@ public class Customer {
     private String phoneNumber;
     private String gender;
     private boolean status;
-    private LocalDate createdAt;
-    private LocalDate updatedAt;
+    private String createdAt;
+    private String updatedAt;
     public Customer(String id, String firstname, String lastname, String email,
                     String password, String birthDate, String phoneNumber,
-                    String gender, boolean status, LocalDate createdAt, LocalDate updatedAt) {
+                    String gender, boolean status, String createdAt, String updatedAt) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -30,6 +32,7 @@ public class Customer {
         this.updatedAt = updatedAt;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Customer{" +
@@ -111,19 +114,19 @@ public class Customer {
         this.status = status;
     }
 
-    public LocalDate getCreatedAt() {
+    public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDate createdAt) {
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public LocalDate getUpdatedAt() {
+    public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(LocalDate updatedAt) {
+    public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }
 

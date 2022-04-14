@@ -1,6 +1,7 @@
 package com.example.kirapp.activities;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,11 +9,16 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.kirapp.R;
 import com.example.kirapp.models.Customer;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -26,21 +32,31 @@ public class RegisterActivity extends AppCompatActivity {
     private final Calendar calendar = Calendar.getInstance();
     private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("customers");
     LocalDate localDate = LocalDate.now();
+    private final String createdAt = localDate.toString();
+    private final String updatedAt = localDate.toString();
     private EditText etBirthDate, etFname, etLname, etEmail, etPassword, etPhoneNumber;
     private RadioGroup etGender;
     private RadioButton radioButton;
     private String g;
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registeration);
 
+        etBirthDate = findViewById(R.id.user_birthdate);
+        etFname = findViewById(R.id.user_firstname);
+        etLname = findViewById(R.id.user_lastname);
+        etEmail = findViewById(R.id.user_email);
+        etPassword = findViewById(R.id.user_password);
+        etPhoneNumber = findViewById(R.id.user_phone);
+        etGender = findViewById(R.id.user_gender);
+        auth = FirebaseAuth.getInstance();
         Button button = findViewById(R.id.register_btn);
         button.setOnClickListener(this::register);
 
         datePicker();
-        viewInit();
     }
 
     public void register(View view) {
@@ -48,19 +64,15 @@ public class RegisterActivity extends AppCompatActivity {
             String id = databaseReference.push().getKey();
             Customer customer = new Customer(id, etFname.getText().toString(), etLname.getText().toString(),
                     etEmail.getText().toString(), etPassword.getText().toString(), etBirthDate.getText().toString(),
-                    etPhoneNumber.getText().toString(), g, true, localDate, localDate);
+                    etPhoneNumber.getText().toString(), g, true, createdAt, updatedAt);
+            auth.createUserWithEmailAndPassword(customer.getEmail(), customer.getPassword()).addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    finish();
+                }
+            });
             databaseReference.child(Objects.requireNonNull(id)).setValue(customer);
         }
-    }
-
-    private void viewInit() {
-        etFname = findViewById(R.id.user_firstname);
-        etLname = findViewById(R.id.user_lastname);
-        etBirthDate = findViewById(R.id.user_birthdate);
-        etEmail = findViewById(R.id.user_email);
-        etPassword = findViewById(R.id.user_password);
-        etPhoneNumber = findViewById(R.id.user_phone);
-        etGender = findViewById(R.id.user_gender);
     }
 
     private boolean validateInput() {
