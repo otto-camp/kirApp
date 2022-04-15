@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/sapphire_800"
+    android:background="@color/beyaz3"
     android:orientation="vertical"
     tools:context=".activities.RegisterActivity">
 
@@ -25,83 +25,95 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/user_firstname"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
+                android:layout_height="wrap_content"
                 android:hint="@string/name"
-                android:importantForAutofill="no"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/black" />
+                android:textColorHint="@color/black">
 
-            <EditText
-                android:id="@+id/user_lastname"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/user_firstname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:background="@color/transparent_blue"
+                    android:ems="10"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp"
+                    android:textColor="@color/black"
+                    tools:ignore="TextContrastCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
+                android:layout_height="wrap_content"
                 android:hint="@string/surname"
-                android:importantForAutofill="no"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/black" />
+                android:textColorHint="@color/black">
 
-            <EditText
-                android:id="@+id/user_birthdate"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/user_lastname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:background="@color/transparent_blue"
+                    android:ems="10"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp"
+                    android:textColor="@color/black"
+                    tools:ignore="TextContrastCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:clickable="true"
-                android:cursorVisible="false"
-                android:ems="10"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
-                android:hint="@string/birth_date"
-                android:importantForAutofill="no"
-                android:inputType="date"
-                android:textColor="@color/white"
-                android:textColorHint="@color/black" />
+                android:layout_height="wrap_content"
+                android:hint="@string/email"
+                android:textColorHint="@color/black">
 
-            <EditText
-                android:id="@+id/user_email"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/user_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:background="@color/transparent_blue"
+                    android:ems="10"
+                    android:importantForAutofill="no"
+                    android:inputType="textEmailAddress"
+                    android:minHeight="48dp"
+                    android:textColor="@color/black"
+                    tools:ignore="TextContrastCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="@string/email_placeholder"
-                android:importantForAutofill="no"
-                android:inputType="textEmailAddress"
-                android:minHeight="48dp"
-                android:textColor="@color/white"
-                android:textColorHint="@color/black" />
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                android:textColorHint="@color/black">
 
-            <EditText
-                android:id="@+id/user_password"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="@string/password_placeholder"
-                android:importantForAutofill="no"
-                android:inputType="textPassword"
-                android:textColor="@color/white"
-                android:textColorHint="@color/black" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/user_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:background="@color/transparent_blue"
+                    android:ems="10"
+                    android:importantForAutofill="no"
+                    android:inputType="textPassword"
+                    android:minHeight="48dp"
+                    android:textColor="@color/black"
+                    tools:ignore="TextContrastCheck" />
 
+            </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp">
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp">
 
                 <com.hbb20.CountryCodePicker
                     android:id="@+id/ccp"
@@ -115,17 +127,40 @@
                     app:ccp_showFlag="true"
                     app:ccp_textGravity="LEFT" />
 
-                <EditText
-                    android:id="@+id/user_phone"
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="64dp"
-                    android:ems="10"
+                    android:layout_height="wrap_content"
                     android:hint="@string/phone"
-                    android:importantForAutofill="no"
-                    android:inputType="phone"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/black" />
+                    android:textColorHint="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/user_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:background="@color/transparent_blue"
+                        android:ems="10"
+                        android:importantForAutofill="no"
+                        android:inputType="phone"
+                        android:minHeight="48dp"
+                        android:textColor="@color/black" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
             </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/user_birthdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@color/transparent_blue"
+                android:ems="10"
+                android:text="@string/birth_date"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                app:strokeColor="@color/transparent_blue" />
 
             <RadioGroup
                 android:id="@+id/user_gender"
@@ -141,7 +176,7 @@
                     android:layout_height="wrap_content"
                     android:checked="true"
                     android:text="@string/male"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="18sp" />
 
                 <RadioButton
@@ -150,7 +185,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="48dp"
                     android:text="@string/female"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="18sp" />
 
                 <RadioButton
@@ -159,7 +194,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="48dp"
                     android:text="@string/other"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="18sp" />
 
             </RadioGroup>
@@ -172,7 +207,7 @@
                 android:layout_marginStart="64dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="64dp"
-                android:backgroundTint="@color/blue_600"
+                android:backgroundTint="@color/blue_700"
                 android:text="@string/register" />
 
         </LinearLayout>

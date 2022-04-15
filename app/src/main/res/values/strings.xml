@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">kirApp</string>
-    <string name="email_placeholder">Email</string>
-    <string name="password_placeholder">Password</string>
-    <string name="login_placeholder">LOGIN</string>
-    <string name="forgot_password_placeholder">FORGOT PASSWORD</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">LOGIN</string>
+    <string name="forgot_password">FORGOT PASSWORD</string>
     <string name="user">User</string>
     <string name="register">REGISTER</string>
     <string name="icon_3">icon_3</string>
@@ -21,4 +21,20 @@
     <string name="other">Other</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="login_with">Login with</string>
+    <string name="login_fail">Login failed!</string>
+    <string name="password_reset">Password Reset</string>
+    <string name="reset_password">Reset password</string>
+    <string name="back">Back</string>
+    <string name="email_empty">Email is empty</string>
+    <string name="fp_link_send">Password reset link is send to your email</string>
+    <string name="fp_error">Error has been occurred</string>
+    <string name="select_date">Select Date</string>
+    <string name="fn_empty">Please enter name</string>
+    <string name="ln_empty">Please enter surname</string>
+    <string name="bd_empty">Please enter birth date</string>
+    <string name="e_empty">Please enter email</string>
+    <string name="p_empty">Please enter minimum 8 characters length password</string>
+    <string name="pn_empty">Please enter phone number</string>
+    <string name="g_empty">Please select gender</string>
+
 </resources>

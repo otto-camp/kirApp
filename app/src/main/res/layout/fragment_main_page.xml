@@ -6,19 +6,16 @@
     android:background="@color/sapphire_500"
     tools:context=".fragments.MainPageFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/app_name" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/email_placeholder"
-        android:id="@+id/myBtn"
-
-
-
-         />
+        android:text="Login"
+        android:id="@+id/myBtn"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:text="Register"
+        android:id="@+id/myBtn2"/>
 
 </FrameLayout>

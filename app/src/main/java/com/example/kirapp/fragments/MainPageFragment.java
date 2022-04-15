@@ -2,13 +2,12 @@ package com.example.kirapp.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.kirapp.R;
 import com.example.kirapp.activities.LoginActivity;
@@ -68,14 +67,13 @@ public class MainPageFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_main_page, container, false);
-        Button myButton = (Button)view.findViewById(R.id.myBtn);
-        myButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View viewer) {
-                Intent intent = new Intent(viewer.getContext(), LoginActivity.class);
-                startActivity(intent);
-            }
+        Button myButton = view.findViewById(R.id.myBtn);
+        myButton.setOnClickListener(viewer -> {
+            Intent intent = new Intent(viewer.getContext(), LoginActivity.class);
+            startActivity(intent);
         });
+        Button btn = view.findViewById(R.id.myBtn2);
+        btn.setOnClickListener(view1 -> startActivity(new Intent(view1.getContext(), RegisterActivity.class)));
         return view;
 
 
