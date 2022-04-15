@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -29,7 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
     private final String updatedAt = localDate.toString();
     private MaterialButton birthDateBtn;
     private TextInputEditText etFname, etLname, etEmail, etPassword, etPhoneNumber;
-    private RadioButton m,f,o;
+    private RadioGroup radioGroup;
     private String gender;
     private FirebaseAuth auth;
 
@@ -50,37 +51,37 @@ public class RegisterActivity extends AppCompatActivity {
         etEmail = findViewById(R.id.user_email);
         etPassword = findViewById(R.id.user_password);
         etPhoneNumber = findViewById(R.id.user_phone);
-        m = findViewById(R.id.radio_male);
-        f = findViewById(R.id.radio_female);
-        o = findViewById(R.id.radio_other);
+        radioGroup = findViewById(R.id.user_gender);
         auth = FirebaseAuth.getInstance();
         Button button = findViewById(R.id.register_btn);
         button.setOnClickListener(this::register);
-
     }
 
     public void register(View view) {
         if (validateInput()) {
             String id = databaseReference.push().getKey();
-            Customer customer = new Customer(id, etFname.getText().toString(), etLname.getText().toString(),
-                    etEmail.getText().toString(), etPassword.getText().toString(), birthDateBtn.getText().toString(),
-                    etPhoneNumber.getText().toString(), gender, true, createdAt, updatedAt);
+            Customer customer = new Customer(id, Objects.requireNonNull(etFname.getText()).toString(),
+                    Objects.requireNonNull(etLname.getText()).toString(),
+                    Objects.requireNonNull(etEmail.getText()).toString(),
+                    Objects.requireNonNull(etPassword.getText()).toString(),
+                    birthDateBtn.getText().toString(),
+                    Objects.requireNonNull(etPhoneNumber.getText()).toString(), gender, true, createdAt, updatedAt);
             auth.createUserWithEmailAndPassword(customer.getEmail(), customer.getPassword()).addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     finish();
+                    databaseReference.child(Objects.requireNonNull(id)).setValue(customer);
                 }
             });
-            databaseReference.child(Objects.requireNonNull(id)).setValue(customer);
         }
     }
 
     private boolean validateInput() {
-        if (etFname.getText().toString().equals("")) {
+        if (Objects.requireNonNull(etFname.getText()).toString().equals("")) {
             Toast.makeText(RegisterActivity.this, R.string.fn_empty, Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (etLname.getText().toString().equals("")) {
+        if (Objects.requireNonNull(etLname.getText()).toString().equals("")) {
             Toast.makeText(RegisterActivity.this, R.string.ln_empty, Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -88,19 +89,22 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(RegisterActivity.this, R.string.bd_empty, Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (etEmail.getText().toString().equals("")) {
+        if (Objects.requireNonNull(etEmail.getText()).toString().equals("")) {
             Toast.makeText(RegisterActivity.this, R.string.e_empty, Toast.LENGTH_SHORT).show();
             return false;
         }
         int MIN_PASSWORD_LENGTH = 8;
-        if (etPassword.getText().length() < MIN_PASSWORD_LENGTH) {
+        if (Objects.requireNonNull(etPassword.getText()).length() < MIN_PASSWORD_LENGTH) {
             Toast.makeText(RegisterActivity.this, R.string.p_empty, Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (etPhoneNumber.getText().toString().equals("")) {
+        if (Objects.requireNonNull(etPhoneNumber.getText()).toString().equals("")) {
             Toast.makeText(RegisterActivity.this, R.string.pn_empty, Toast.LENGTH_SHORT).show();
             return false;
         }
+        int id = radioGroup.getCheckedRadioButtonId();
+        RadioButton radioButton = findViewById(id);
+        gender = radioButton.getText().toString();
 
         return true;
     }
@@ -109,9 +113,7 @@ public class RegisterActivity extends AppCompatActivity {
         MaterialDatePicker.Builder<Long> builder = MaterialDatePicker.Builder.datePicker();
         builder.setTitleText(R.string.select_date);
         final MaterialDatePicker<Long> picker = builder.build();
-
         birthDateBtn.setOnClickListener(view -> picker.show(getSupportFragmentManager(), "DATE_PICKER"));
-
         picker.addOnPositiveButtonClickListener(selection -> birthDateBtn.setText(picker.getHeaderText()));
     }
 

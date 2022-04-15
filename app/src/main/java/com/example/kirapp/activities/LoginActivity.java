@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.kirapp.R;
 import com.example.kirapp.fragments.MainPageFragment;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -39,8 +40,13 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(this::signIn);
         register.setOnClickListener(this::register);
         forgotPassword.setOnClickListener(this::forgotPassword);
-
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
+        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
     }
 
     @Override

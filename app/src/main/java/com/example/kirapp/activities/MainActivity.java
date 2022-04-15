@@ -1,6 +1,5 @@
 package com.example.kirapp.activities;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -20,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     private final FirebaseUser auth = FirebaseAuth.getInstance().getCurrentUser();
     BottomNavigationView bottomNavigationView;
 
-    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
