@@ -16,5 +16,8 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_forgot_password);
 
         Fragment fragment = new SendLinkFragment();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.send_link_layout, fragment).commit();
     }
 }

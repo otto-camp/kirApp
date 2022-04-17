@@ -27,7 +27,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout, new MainPageFragment()).commit();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.main_frame_layout, new MainPageFragment()).commit();
         bottomNavigationView.setSelectedItemId(R.id.mainPageFragment);
         bottomNavigationView.setOnItemSelectedListener(item -> {
             Fragment fragment = null;
@@ -44,7 +46,9 @@ public class MainActivity extends AppCompatActivity {
                 fragment = new SearchFragment();
             }
             assert fragment != null;
-            getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout, fragment).commit();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.main_frame_layout, fragment).commit();
             return true;
         });
     }

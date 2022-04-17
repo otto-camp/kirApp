@@ -75,7 +75,5 @@ public class MainPageFragment extends Fragment {
         Button btn = view.findViewById(R.id.myBtn2);
         btn.setOnClickListener(view1 -> startActivity(new Intent(view1.getContext(), RegisterActivity.class)));
         return view;
-
-
     }
 }

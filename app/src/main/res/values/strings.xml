@@ -37,7 +37,7 @@
     <string name="pn_empty">Please enter phone number</string>
     <string name="g_empty">Please select gender</string>
     <string name="register_error">Failed to create account</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="verification_text">Verification link is send to your email. Check your mailbox</string>
 
 </resources>
