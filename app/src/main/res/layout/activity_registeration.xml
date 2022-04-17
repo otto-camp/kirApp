@@ -119,6 +119,7 @@
                     android:id="@+id/ccp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    app:ccpDialog_textColor="@color/white"
                     app:ccp_arrowColor="@color/black"
                     app:ccp_autoDetectCountry="true"
                     app:ccp_contentColor="@color/black"
@@ -199,7 +200,7 @@
 
             </RadioGroup>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/register_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -209,6 +210,17 @@
                 android:layout_marginEnd="64dp"
                 android:backgroundTint="@color/blue_700"
                 android:text="@string/register" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/back_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="24dp"
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:text="@string/back"
+                android:textColor="@color/black_100"
+                android:textSize="18sp" />
 
         </LinearLayout>
     </ScrollView>

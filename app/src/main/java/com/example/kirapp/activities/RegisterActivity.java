@@ -3,7 +3,6 @@ package com.example.kirapp.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -53,8 +52,11 @@ public class RegisterActivity extends AppCompatActivity {
         etPhoneNumber = findViewById(R.id.user_phone);
         radioGroup = findViewById(R.id.user_gender);
         auth = FirebaseAuth.getInstance();
-        Button button = findViewById(R.id.register_btn);
-        button.setOnClickListener(this::register);
+        MaterialButton registerBtn = findViewById(R.id.register_btn);
+        registerBtn.setOnClickListener(this::register);
+        MaterialButton backbtn = findViewById(R.id.back_btn);
+        backbtn.setOnClickListener(view -> startActivity(
+                new Intent(RegisterActivity.this, LoginActivity.class)));
     }
 
     public void register(View view) {
@@ -71,6 +73,8 @@ public class RegisterActivity extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     finish();
                     databaseReference.child(Objects.requireNonNull(id)).setValue(customer);
+                } else {
+                    Toast.makeText(RegisterActivity.this, R.string.register_error, Toast.LENGTH_SHORT).show();
                 }
             });
         }
