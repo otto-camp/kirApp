@@ -10,7 +10,6 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import com.example.kirapp.R;
 import com.example.kirapp.activities.LoginActivity;
@@ -71,26 +70,24 @@ public class RegisterFragment extends Fragment {
                     Objects.requireNonNull(etPassword.getText()).toString(),
                     birthDateBtn.getText().toString(),
                     Objects.requireNonNull(etPhoneNumber.getText()).toString(),
-                    gender, true, createdAt, updatedAt);
+                    gender, false, createdAt, updatedAt);
             auth.createUserWithEmailAndPassword(customer.getEmail(), customer.getPassword())
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
                             auth.getCurrentUser().sendEmailVerification()
                                     .addOnCompleteListener(task1 -> {
                                         if (task1.isSuccessful()) {
+                                            databaseReference.child(Objects.requireNonNull(id)).setValue(customer);
                                             Toast.makeText(view.getContext(), R.string.verification_text, Toast.LENGTH_SHORT).show();
                                         }
                                     });
-                            Fragment verificationFragment = new VerificationFragment();
-                            FragmentManager fragmentManager = getChildFragmentManager();
-                            fragmentManager.beginTransaction().replace(R.id.register_layout, verificationFragment).commit();
                         } else {
                             Toast.makeText(view.getContext(), R.string.register_error, Toast.LENGTH_SHORT).show();
                         }
                     });
-            if (auth.getCurrentUser().isEmailVerified()){
-                databaseReference.child(Objects.requireNonNull(id)).setValue(customer);
-            }else{
+            if (auth.getCurrentUser().isEmailVerified()) {
+                customer.setStatus(true);
+            } else {
                 Toast.makeText(view.getContext(), "Check your email", Toast.LENGTH_SHORT).show();
             }
         }
