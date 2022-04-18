@@ -38,6 +38,7 @@ public class RegisterFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        auth = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -54,7 +55,6 @@ public class RegisterFragment extends Fragment {
         etPassword = view.findViewById(R.id.user_password);
         etPhoneNumber = view.findViewById(R.id.user_phone);
         radioGroup = view.findViewById(R.id.user_gender);
-        auth = FirebaseAuth.getInstance();
         MaterialButton registerBtn = view.findViewById(R.id.register_btn);
         registerBtn.setOnClickListener(this::register);
         MaterialButton backbtn = view.findViewById(R.id.back_btn);
@@ -75,14 +75,12 @@ public class RegisterFragment extends Fragment {
             auth.createUserWithEmailAndPassword(customer.getEmail(), customer.getPassword())
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
-                            Objects.requireNonNull(auth.getCurrentUser())
-                                    .sendEmailVerification()
+                            auth.getCurrentUser().sendEmailVerification()
                                     .addOnCompleteListener(task1 -> {
                                         if (task1.isSuccessful()) {
-                                            databaseReference.child(Objects.requireNonNull(id)).setValue(customer);
+                                            Toast.makeText(view.getContext(), R.string.verification_text, Toast.LENGTH_SHORT).show();
                                         }
                                     });
-                            //BURADAN EMAİLİNİ KONTROL ET FRAGMENTİNE GEÇECEK
                             Fragment verificationFragment = new VerificationFragment();
                             FragmentManager fragmentManager = getChildFragmentManager();
                             fragmentManager.beginTransaction().replace(R.id.register_layout, verificationFragment).commit();
@@ -90,6 +88,11 @@ public class RegisterFragment extends Fragment {
                             Toast.makeText(view.getContext(), R.string.register_error, Toast.LENGTH_SHORT).show();
                         }
                     });
+            if (auth.getCurrentUser().isEmailVerified()){
+                databaseReference.child(Objects.requireNonNull(id)).setValue(customer);
+            }else{
+                Toast.makeText(view.getContext(), "Check your email", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 

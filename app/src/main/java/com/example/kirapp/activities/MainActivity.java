@@ -1,6 +1,5 @@
 package com.example.kirapp.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,12 +10,9 @@ import com.example.kirapp.fragments.MainPageFragment;
 import com.example.kirapp.fragments.ProfileFragment;
 import com.example.kirapp.fragments.SearchFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final FirebaseUser auth = FirebaseAuth.getInstance().getCurrentUser();
     BottomNavigationView bottomNavigationView;
 
     @Override
@@ -37,9 +33,6 @@ public class MainActivity extends AppCompatActivity {
                 fragment = new MainPageFragment();
             }
             if (item.getItemId() == R.id.profileFragment) {
-                if (auth.isAnonymous()) {
-                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                }
                 fragment = new ProfileFragment();
             }
             if (item.getItemId() == R.id.searchFragment) {

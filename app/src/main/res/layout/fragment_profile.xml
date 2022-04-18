@@ -35,7 +35,7 @@
                 android:maxHeight="150dp"
                 android:scaleType="fitXY"
                 app:shapeAppearanceOverlay="@style/imageViewRounded"
-                app:srcCompat="@mipmap/ic_blue_2"/>
+                app:srcCompat="@mipmap/ic_blue_2" />
 
             <TextView
                 android:id="@+id/user_name"
@@ -91,6 +91,18 @@
                 android:backgroundTint="@color/black_100"
                 android:text="@string/edit_profile"
                 android:textAllCaps="false"
+                android:textSize="22sp"
+                app:cornerRadius="10dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/profile_sign_out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="@color/beyaz1"
+                android:text="@string/sign_out"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
                 android:textSize="22sp"
                 app:cornerRadius="10dp" />
 

@@ -41,8 +41,7 @@ public class SendLinkFragment extends Fragment {
         etEmail = view.findViewById(R.id.fp_email);
         resetPasswordBtn = view.findViewById(R.id.fp_btn);
         backBtn = view.findViewById(R.id.back_btn);
-        String email = Objects.requireNonNull(etEmail.getText()).toString();
-        resetPasswordBtn.setOnClickListener(view1 -> sendLink(email));
+        resetPasswordBtn.setOnClickListener(view1 -> sendLink(Objects.requireNonNull(etEmail.getText()).toString()));
         backBtn.setOnClickListener(getOnClickListener());
 
         return view;
@@ -55,7 +54,7 @@ public class SendLinkFragment extends Fragment {
 
     private void sendLink(String email) {
         if (TextUtils.isEmpty(email)) {
-            Toast.makeText(requireActivity().getApplicationContext(),
+            Toast.makeText(getContext().getApplicationContext(),
                     R.string.email_empty, Toast.LENGTH_SHORT).show();
         }
         auth.sendPasswordResetEmail(email).addOnCompleteListener(task -> {
