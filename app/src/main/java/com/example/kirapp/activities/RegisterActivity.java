@@ -81,11 +81,6 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.makeText(view.getContext(), R.string.register_error, Toast.LENGTH_SHORT).show();
                         }
                     });
-
-            if (auth.getCurrentUser().isEmailVerified())
-                customer.setStatus(true);
-        } else {
-            Toast.makeText(view.getContext(), "Check your email", Toast.LENGTH_SHORT).show();
         }
     }
 

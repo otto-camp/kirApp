@@ -47,7 +47,6 @@ public class LoginActivity extends AppCompatActivity {
         MaterialButton loginGoogle = findViewById(R.id.login_google_btn);
         MaterialButton forgotPassword = findViewById(R.id.forgot_password_btn);
         MaterialButton register = findViewById(R.id.register_btn);
-        auth = FirebaseAuth.getInstance();
         login.setOnClickListener(this::signInWithEmail);
         register.setOnClickListener(this::register);
         forgotPassword.setOnClickListener(this::forgotPassword);
@@ -58,6 +57,7 @@ public class LoginActivity extends AppCompatActivity {
                 .requestEmail()
                 .build();
         googleSignInClient = GoogleSignIn.getClient(this, signInOptions);
+        auth = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -90,14 +90,15 @@ public class LoginActivity extends AppCompatActivity {
 
     private void authWithGoogle(String idToken) {
         AuthCredential authCredential = GoogleAuthProvider.getCredential(idToken, null);
-        auth.signInWithCredential(authCredential).addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                FirebaseUser user = auth.getCurrentUser();
-                reload(user);
-            } else {
-                reload(null);
-            }
-        });
+        auth.signInWithCredential(authCredential)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        FirebaseUser user = auth.getCurrentUser();
+                        reload(user);
+                    } else {
+                        reload(null);
+                    }
+                });
     }
 
     private void reload(FirebaseUser user) {

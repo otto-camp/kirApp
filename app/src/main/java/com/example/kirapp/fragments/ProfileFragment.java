@@ -15,10 +15,14 @@ import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Objects;
 
 public class ProfileFragment extends Fragment {
+    private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("customers");
+    private final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private String name, email, uid;
     private TextView tName, tEmail;
     private MaterialButton signOut;
@@ -26,14 +30,20 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        getProfile(Objects.requireNonNull(user));
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (user != null) {
+            getProfile(Objects.requireNonNull(user));
+        }
     }
 
     private void getProfile(FirebaseUser user) {
         for (UserInfo profile : user.getProviderData()) {
             uid = profile.getUid();
-            name = profile.getDisplayName();
+            // name = profile.getDisplayName();
             email = profile.getEmail();
         }
     }
@@ -45,6 +55,7 @@ public class ProfileFragment extends Fragment {
         tName = view.findViewById(R.id.user_name);
         tEmail = view.findViewById(R.id.myUser);
         signOut = view.findViewById(R.id.profile_sign_out);
+
 
         tName.setText(name);
         tEmail.setText(email);
