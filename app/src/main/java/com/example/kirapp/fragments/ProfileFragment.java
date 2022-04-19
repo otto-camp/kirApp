@@ -16,8 +16,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
 
+import java.util.Objects;
+
 public class ProfileFragment extends Fragment {
-    private final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private String name, email, uid;
     private TextView tName, tEmail;
     private MaterialButton signOut;
@@ -25,14 +26,11 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (user != null) {
-            getProfile();
-        } else {
-            startActivity(new Intent(getContext(), LoginActivity.class));
-        }
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        getProfile(Objects.requireNonNull(user));
     }
 
-    private void getProfile() {
+    private void getProfile(FirebaseUser user) {
         for (UserInfo profile : user.getProviderData()) {
             uid = profile.getUid();
             name = profile.getDisplayName();

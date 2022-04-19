@@ -41,5 +41,7 @@
     <string name="email_not_verified">You need to verify your email</string>
     <string name="verification_text">Verification link is send to your email. Check your mailbox</string>
     <string name="sign_out">Sign Out</string>
+    <string name="message">Message</string>
+    <string name="advert">Advert</string>
 
 </resources>
