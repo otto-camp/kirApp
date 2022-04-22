@@ -63,9 +63,9 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        FirebaseUser firebaseUser = auth.getCurrentUser();
-        if (firebaseUser != null) {
-            reload(firebaseUser);
+        FirebaseUser currentUser = auth.getCurrentUser();
+        if (currentUser != null) {
+            reload(currentUser);
         }
     }
 
@@ -102,7 +102,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void reload(FirebaseUser user) {
-        if (user == null) {
+        if (user != null) {
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+        } else {
             Toast.makeText(LoginActivity.this, R.string.login_fail, Toast.LENGTH_SHORT).show();
         }
     }
@@ -130,10 +132,10 @@ public class LoginActivity extends AppCompatActivity {
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         FirebaseUser user = auth.getCurrentUser();
-                        if (user.isEmailVerified()) {
+                        if (Objects.requireNonNull(user).isEmailVerified()) {
                             reload(user);
                         } else {
-                            Toast.makeText(LoginActivity.this, R.string.email_not_verified, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, R.string.email_not_verified, Toast.LENGTH_LONG).show();
                         }
                     } else {
                         Toast.makeText(LoginActivity.this, R.string.login_fail, Toast.LENGTH_SHORT).show();

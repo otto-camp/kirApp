@@ -2,8 +2,6 @@ package com.example.kirapp.models;
 
 import androidx.annotation.NonNull;
 
-import java.time.LocalDate;
-
 public class Customer {
     private String id;
     private String firstname;
@@ -16,6 +14,7 @@ public class Customer {
     private boolean status;
     private String createdAt;
     private String updatedAt;
+
     public Customer(String id, String firstname, String lastname, String email,
                     String password, String birthDate, String phoneNumber,
                     String gender, boolean status, String createdAt, String updatedAt) {
