@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/email"
-                android:textColorHint="@color/black_100">
+                android:textColorHint="@color/blue_700">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/user_email"
@@ -48,7 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/password"
-                android:textColorHint="@color/black_100">
+                android:textColorHint="@color/blue_700">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/user_password"

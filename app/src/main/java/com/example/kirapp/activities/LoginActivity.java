@@ -128,17 +128,18 @@ public class LoginActivity extends AppCompatActivity {
 
     private void signInWithEmail(View view) {
         auth.signInWithEmailAndPassword(
-                email.getText().toString().trim(), password.getText().toString().trim())
+                email.getText().toString(), password.getText().toString())
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         FirebaseUser user = auth.getCurrentUser();
                         if (Objects.requireNonNull(user).isEmailVerified()) {
                             reload(user);
                         } else {
+                            user.sendEmailVerification();
                             Toast.makeText(LoginActivity.this, R.string.email_not_verified, Toast.LENGTH_LONG).show();
                         }
+
                     } else {
-                        Toast.makeText(LoginActivity.this, R.string.login_fail, Toast.LENGTH_SHORT).show();
                         reload(null);
                     }
                 });

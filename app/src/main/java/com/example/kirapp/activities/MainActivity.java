@@ -11,7 +11,6 @@ import com.example.kirapp.fragments.AddAdvertFragment;
 import com.example.kirapp.fragments.MainPageFragment;
 import com.example.kirapp.fragments.MessageFragment;
 import com.example.kirapp.fragments.ProfileFragment;
-import com.example.kirapp.fragments.SearchFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -44,9 +43,6 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 }
                 fragment = new ProfileFragment();
-            }
-            if (item.getItemId() == R.id.searchFragment) {
-                fragment = new SearchFragment();
             }
             if (item.getItemId() == R.id.messageFragment) {
                 fragment = new MessageFragment();

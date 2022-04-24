@@ -15,6 +15,21 @@ public class Customer {
     private String createdAt;
     private String updatedAt;
 
+    public Customer(String firstname, String lastname, String email, String password,
+                    String birthDate, String phoneNumber, String gender, boolean status,
+                    String createdAt, String updatedAt) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
+        this.birthDate = birthDate;
+        this.phoneNumber = phoneNumber;
+        this.gender = gender;
+        this.status = status;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
+
     public Customer(String id, String firstname, String lastname, String email,
                     String password, String birthDate, String phoneNumber,
                     String gender, boolean status, String createdAt, String updatedAt) {
@@ -29,6 +44,10 @@ public class Customer {
         this.status = status;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+    }
+
+    public Customer() {
+
     }
 
     @NonNull

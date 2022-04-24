@@ -76,82 +76,89 @@
 
         </RelativeLayout>
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/profile_header"
-            android:layout_margin="16dp"
-            android:orientation="vertical">
+            android:layout_below="@+id/profile_header">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/profile_edit"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="8dp"
-                android:backgroundTint="@color/black_100"
-                android:text="@string/edit_profile"
-                android:textAllCaps="false"
-                android:textSize="22sp"
-                app:cornerRadius="10dp" />
+                android:orientation="vertical">
 
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:backgroundTint="@color/black_100"
-                android:gravity="center"
-                android:text="@string/app_name"
-                android:textAllCaps="false"
-                android:textSize="22sp"
-                app:cornerRadius="10dp" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/profile_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:backgroundTint="@color/blue_700"
+                    android:text="@string/edit_profile"
+                    android:textAllCaps="false"
+                    android:textSize="22sp"
+                    app:cornerRadius="10dp" />
 
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:backgroundTint="@color/black_100"
-                android:gravity="center"
-                android:text="@string/app_name"
-                android:textAllCaps="false"
-                android:textSize="22sp"
-                app:cornerRadius="10dp" />
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:backgroundTint="@color/blue_700"
+                    android:gravity="center"
+                    android:text="@string/app_name"
+                    android:textAllCaps="false"
+                    android:textSize="22sp"
+                    app:cornerRadius="10dp" />
 
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:backgroundTint="@color/black_100"
-                android:gravity="center"
-                android:text="@string/app_name"
-                android:textAllCaps="false"
-                android:textSize="22sp"
-                app:cornerRadius="10dp" />
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:backgroundTint="@color/blue_700"
+                    android:gravity="center"
+                    android:text="@string/app_name"
+                    android:textAllCaps="false"
+                    android:textSize="22sp"
+                    app:cornerRadius="10dp" />
 
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:backgroundTint="@color/black_100"
-                android:gravity="center"
-                android:text="@string/app_name"
-                android:textAllCaps="false"
-                android:textSize="22sp"
-                app:cornerRadius="10dp" />
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:backgroundTint="@color/blue_700"
+                    android:gravity="center"
+                    android:text="@string/app_name"
+                    android:textAllCaps="false"
+                    android:textSize="22sp"
+                    app:cornerRadius="10dp" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/profile_sign_out"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
-                android:backgroundTint="@color/beyaz1"
-                android:text="@string/sign_out"
-                android:textAllCaps="false"
-                android:textColor="@color/black"
-                android:textSize="22sp"
-                app:cornerRadius="10dp" />
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:backgroundTint="@color/blue_700"
+                    android:gravity="center"
+                    android:text="@string/app_name"
+                    android:textAllCaps="false"
+                    android:textSize="22sp"
+                    app:cornerRadius="10dp" />
 
-        </LinearLayout>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/profile_sign_out"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="42dp"
+                    android:backgroundTint="@color/beyaz1"
+                    android:text="@string/sign_out"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:cornerRadius="10dp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
     </RelativeLayout>
 
 </FrameLayout>

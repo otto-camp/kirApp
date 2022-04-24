@@ -52,18 +52,7 @@ public class ProfileFragment extends Fragment {
             name = profile.getDisplayName();
             email = profile.getEmail();
         }
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Customer customer = snapshot.getValue(Customer.class);
 
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
     }
 
     @Override
