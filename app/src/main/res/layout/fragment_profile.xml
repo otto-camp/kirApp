@@ -84,6 +84,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
                 android:orientation="vertical">
 
                 <com.google.android.material.button.MaterialButton
@@ -99,45 +100,25 @@
                     app:cornerRadius="10dp" />
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/user_advert_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:backgroundTint="@color/blue_700"
                     android:gravity="center"
-                    android:text="@string/app_name"
+                    android:text="@string/advert_list"
                     android:textAllCaps="false"
                     android:textSize="22sp"
                     app:cornerRadius="10dp" />
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/user_change_theme"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:backgroundTint="@color/blue_700"
                     android:gravity="center"
-                    android:text="@string/app_name"
-                    android:textAllCaps="false"
-                    android:textSize="22sp"
-                    app:cornerRadius="10dp" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:backgroundTint="@color/blue_700"
-                    android:gravity="center"
-                    android:text="@string/app_name"
-                    android:textAllCaps="false"
-                    android:textSize="22sp"
-                    app:cornerRadius="10dp" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:backgroundTint="@color/blue_700"
-                    android:gravity="center"
-                    android:text="@string/app_name"
+                    android:text="@string/theme"
                     android:textAllCaps="false"
                     android:textSize="22sp"
                     app:cornerRadius="10dp" />
@@ -146,7 +127,6 @@
                     android:id="@+id/profile_sign_out"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
                     android:layout_marginBottom="42dp"
                     android:backgroundTint="@color/beyaz1"
                     android:text="@string/sign_out"

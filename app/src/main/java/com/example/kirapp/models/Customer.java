@@ -7,7 +7,6 @@ public class Customer {
     private String firstname;
     private String lastname;
     private String email;
-    private String password;
     private String birthDate;
     private String phoneNumber;
     private String gender;
@@ -15,13 +14,12 @@ public class Customer {
     private String createdAt;
     private String updatedAt;
 
-    public Customer(String firstname, String lastname, String email, String password,
-                    String birthDate, String phoneNumber, String gender, boolean status,
+    public Customer(String firstname, String lastname, String email, String birthDate,
+                    String phoneNumber, String gender, boolean status,
                     String createdAt, String updatedAt) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
-        this.password = password;
         this.birthDate = birthDate;
         this.phoneNumber = phoneNumber;
         this.gender = gender;
@@ -31,13 +29,12 @@ public class Customer {
     }
 
     public Customer(String id, String firstname, String lastname, String email,
-                    String password, String birthDate, String phoneNumber,
-                    String gender, boolean status, String createdAt, String updatedAt) {
+                    String birthDate, String phoneNumber, String gender,
+                    boolean status, String createdAt, String updatedAt) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
-        this.password = password;
         this.birthDate = birthDate;
         this.phoneNumber = phoneNumber;
         this.gender = gender;
@@ -58,7 +55,6 @@ public class Customer {
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
                 ", birthDate='" + birthDate + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", gender='" + gender + '\'' +
@@ -98,14 +94,6 @@ public class Customer {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getBirthDate() {

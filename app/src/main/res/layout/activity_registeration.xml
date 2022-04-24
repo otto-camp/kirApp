@@ -28,8 +28,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/name"
-                android:textColorHint="@color/black">
+                android:hint="@string/name">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/user_firstname"
@@ -41,7 +40,6 @@
                     android:importantForAutofill="no"
                     android:inputType="textPersonName"
                     android:minHeight="48dp"
-                    android:textColor="@color/black"
                     tools:ignore="TextContrastCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -49,8 +47,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/surname"
-                android:textColorHint="@color/black">
+                android:hint="@string/surname">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/user_lastname"
@@ -62,7 +59,6 @@
                     android:importantForAutofill="no"
                     android:inputType="textPersonName"
                     android:minHeight="48dp"
-                    android:textColor="@color/black"
                     tools:ignore="TextContrastCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -70,8 +66,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/email"
-                android:textColorHint="@color/black">
+                android:hint="@string/email">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/user_email"
@@ -83,7 +78,6 @@
                     android:importantForAutofill="no"
                     android:inputType="textEmailAddress"
                     android:minHeight="48dp"
-                    android:textColor="@color/black"
                     tools:ignore="TextContrastCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -91,8 +85,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/password"
-                android:textColorHint="@color/black">
+                android:hint="@string/password">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/user_password"
@@ -104,7 +97,6 @@
                     android:importantForAutofill="no"
                     android:inputType="textPassword"
                     android:minHeight="48dp"
-                    android:textColor="@color/black"
                     tools:ignore="TextContrastCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -117,9 +109,9 @@
 
                 <com.hbb20.CountryCodePicker
                     android:id="@+id/ccp"
+                    style="@style/Theme.KirApp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    style="@style/Theme.KirApp"
                     app:ccp_arrowColor="@color/black"
                     app:ccp_autoDetectCountry="true"
                     app:ccp_contentColor="@color/black"
@@ -130,8 +122,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/phone"
-                    android:textColorHint="@color/black">
+                    android:hint="@string/phone">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/user_phone"
@@ -143,7 +134,7 @@
                         android:importantForAutofill="no"
                         android:inputType="phone"
                         android:minHeight="48dp"
-                        android:textColor="@color/black" />
+                        tools:ignore="TextContrastCheck" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -176,7 +167,6 @@
                     android:layout_height="wrap_content"
                     android:checked="true"
                     android:text="@string/male"
-                    android:textColor="@color/black"
                     android:textSize="18sp" />
 
                 <RadioButton
@@ -185,7 +175,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="48dp"
                     android:text="@string/female"
-                    android:textColor="@color/black"
                     android:textSize="18sp" />
 
                 <RadioButton
@@ -194,7 +183,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="48dp"
                     android:text="@string/other"
-                    android:textColor="@color/black"
                     android:textSize="18sp" />
 
             </RadioGroup>

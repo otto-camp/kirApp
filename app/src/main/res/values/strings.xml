@@ -43,5 +43,11 @@
     <string name="sign_out">Sign Out</string>
     <string name="message">Message</string>
     <string name="advert">Advert</string>
+    <string name="description"><font size="64">Description</font></string>
+    <string name="price">Price</string>
+    <string name="advert_images">Advert images</string>
+    <string name="submit">Submit</string>
+    <string name="advert_list">Advert list</string>
+    <string name="theme">Theme</string>
 
 </resources>

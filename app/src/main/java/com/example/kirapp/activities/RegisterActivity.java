@@ -79,14 +79,13 @@ public class RegisterActivity extends AppCompatActivity {
                             customer.setFirstname(Objects.requireNonNull(etFname.getText()).toString());
                             customer.setLastname(Objects.requireNonNull(etLname.getText()).toString());
                             customer.setEmail(Objects.requireNonNull(etEmail.getText()).toString());
-                            customer.setPassword(Objects.requireNonNull(etPassword.getText()).toString());
                             customer.setBirthDate(birthDateBtn.getText().toString());
                             customer.setPhoneNumber(cpp.getTextView_selectedCountry().getText().toString() + Objects.requireNonNull(etPhoneNumber.getText()));
                             customer.setGender(gender);
                             customer.setStatus(true);
                             customer.setCreatedAt(createdAt);
                             customer.setUpdatedAt(updatedAt);
-
+                            user.sendEmailVerification();
                             databaseReference.child(customer.getId()).setValue(customer);
                             Toast.makeText(this, R.string.verification_text, Toast.LENGTH_LONG).show();
                         } else {
