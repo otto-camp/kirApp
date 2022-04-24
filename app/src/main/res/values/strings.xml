@@ -49,5 +49,6 @@
     <string name="submit">Submit</string>
     <string name="advert_list">Advert list</string>
     <string name="theme">Theme</string>
-
+    <string name="empty_input">Inputs should not be empty</string>
+    <string name="advert_added">Advert added</string>
 </resources>

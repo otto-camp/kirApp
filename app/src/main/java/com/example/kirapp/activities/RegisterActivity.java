@@ -44,7 +44,6 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registeration);
         auth = FirebaseAuth.getInstance();
-        user = auth.getCurrentUser();
 
         createdAt = LocalDate.now().toString();
         updatedAt = LocalDate.now().toString();
@@ -75,7 +74,6 @@ public class RegisterActivity extends AppCompatActivity {
             auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
-                            customer.setId(databaseReference.push().getKey());
                             customer.setFirstname(Objects.requireNonNull(etFname.getText()).toString());
                             customer.setLastname(Objects.requireNonNull(etLname.getText()).toString());
                             customer.setEmail(Objects.requireNonNull(etEmail.getText()).toString());
@@ -85,7 +83,9 @@ public class RegisterActivity extends AppCompatActivity {
                             customer.setStatus(true);
                             customer.setCreatedAt(createdAt);
                             customer.setUpdatedAt(updatedAt);
-                            user.sendEmailVerification();
+                            user = auth.getCurrentUser();
+                            Objects.requireNonNull(user).sendEmailVerification();
+                            customer.setId(user.getUid());
                             databaseReference.child(customer.getId()).setValue(customer);
                             Toast.makeText(this, R.string.verification_text, Toast.LENGTH_LONG).show();
                         } else {

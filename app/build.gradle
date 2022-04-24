@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.kirapp"
-        minSdk 21
+        minSdk 26
         targetSdk 31
         versionCode 1
         versionName "1.0"
@@ -18,7 +18,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -54,9 +54,6 @@ dependencies {
     testImplementation 'junit:junit:5.8.2'
     testImplementation 'org.mockito:mockito-core:4.5.1'
     implementation 'org.mockito:mockito-android:4.5.1'
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-    testImplementation 'org.junit.jupiter:junit-jupiter'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.8.1'

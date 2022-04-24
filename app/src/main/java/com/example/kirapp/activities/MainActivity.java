@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
-
+    private final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     BottomNavigationView bottomNavigationView;
 
     @Override
@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         getSupportFragmentManager()
@@ -39,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 fragment = new MainPageFragment();
             }
             if (item.getItemId() == R.id.profileFragment) {
-                if (user == null || user.isAnonymous()) {
+                if (user == null) {
                     startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 }
                 fragment = new ProfileFragment();
