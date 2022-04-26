@@ -23,10 +23,10 @@
                 android:id="@+id/advert_image"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
+                android:layout_margin="16dp"
                 android:contentDescription="@string/advert_images"
                 android:maxHeight="120dp"
                 android:minHeight="120dp"
-                android:layout_margin="16dp"
                 android:src="@mipmap/ic_blue_1" />
         </RelativeLayout>
 
@@ -39,9 +39,12 @@
                 android:id="@+id/advert_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
                 android:text="@string/name"
-                android:textSize="22sp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/advert_price"
@@ -50,7 +53,7 @@
                 android:layout_below="@+id/advert_name"
                 android:layout_margin="8dp"
                 android:text="@string/price"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
         </RelativeLayout>
 
     </LinearLayout>

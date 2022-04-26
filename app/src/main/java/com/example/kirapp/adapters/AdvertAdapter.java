@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.kirapp.R;
 import com.example.kirapp.models.Advert;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class AdvertAdapter extends RecyclerView.Adapter<AdvertAdapter.ViewHolder> {
@@ -33,10 +34,12 @@ public class AdvertAdapter extends RecyclerView.Adapter<AdvertAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Advert advert = adverts.get(position);
-        holder.advertName.setText(advert.getName());
-        holder.advertPrice.setText(String.valueOf(advert.getPrice()));
-        holder.advertImage.setImageResource(R.mipmap.ic_blue_1);
+        Double p = adverts.get(position).getPrice();
+        NumberFormat format = NumberFormat.getCurrencyInstance();
+
+        holder.advertName.setText(adverts.get(position).getName());
+        holder.advertPrice.setText(format.format(p));
+        holder.advertImage.setImageResource(R.mipmap.ic_blue_2);
     }
 
     @Override
@@ -49,11 +52,12 @@ public class AdvertAdapter extends RecyclerView.Adapter<AdvertAdapter.ViewHolder
         private final TextView advertPrice;
         private final ImageView advertImage;
 
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            advertName = itemView.findViewById(R.id.advert_name);
-            advertPrice = itemView.findViewById(R.id.advert_price);
-            advertImage = itemView.findViewById(R.id.advert_image);
+        public ViewHolder(@NonNull View view) {
+            super(view);
+            advertName = view.findViewById(R.id.advert_name);
+            advertPrice = view.findViewById(R.id.advert_price);
+            advertImage = view.findViewById(R.id.advert_image);
+            view.setTag(view);
         }
 
         @Override

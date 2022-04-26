@@ -20,12 +20,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainPageFragment extends Fragment {
     private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("adverts");
-    private RecyclerView recyclerView;
-    private AdvertAdapter advertAdapter;
-    private ArrayList<Advert> adverts;
+    private final ArrayList<Advert> adverts = new ArrayList<>();
+    private final AdvertAdapter advertAdapter = new AdvertAdapter(adverts, getContext());
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,23 +37,28 @@ public class MainPageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main_page, container, false);
-        recyclerView = view.findViewById(R.id.advert_view);
+        RecyclerView recyclerView = view.findViewById(R.id.advert_view);
 
-        adverts = new ArrayList<>();
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager manager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(manager);
+        recyclerView.setAdapter(advertAdapter);
 
+        // FIXME: 27.04.2022
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 adverts.clear();
+                Map<String, Advert> map = new HashMap<>();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    Advert advert = dataSnapshot.getValue(Advert.class);
-                    adverts.add(advert);
+                    for (Map.Entry<String, Advert> entry : map.entrySet()) {
+                        String key = entry.getKey();
+                        Advert advert = entry.getValue();
+                        adverts.add(advert);
+                    }
+
+                    advertAdapter.notifyDataSetChanged();
                 }
-                recyclerView.setHasFixedSize(true);
-                LinearLayoutManager manager = new LinearLayoutManager(getContext());
-                recyclerView.setLayoutManager(manager);
-                advertAdapter = new AdvertAdapter(adverts, requireContext());
-                recyclerView.setAdapter(advertAdapter);
             }
 
             @Override
@@ -62,4 +68,5 @@ public class MainPageFragment extends Fragment {
 
         return view;
     }
+
 }
