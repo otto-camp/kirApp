@@ -3,12 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="12dp"
     android:elevation="8dp"
     app:cardCornerRadius="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/malachite_600"
         android:baselineAligned="false"
         android:orientation="horizontal">
 
@@ -22,7 +24,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:contentDescription="@string/advert_images"
-                android:minHeight="150dp"
+                android:maxHeight="120dp"
+                android:minHeight="120dp"
+                android:layout_margin="16dp"
                 android:src="@mipmap/ic_blue_1" />
         </RelativeLayout>
 

@@ -19,7 +19,6 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     private final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.main_frame_layout, new MainPageFragment()).commit();

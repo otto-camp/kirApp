@@ -13,13 +13,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.kirapp.R;
 import com.example.kirapp.models.Advert;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class AdvertAdapter extends RecyclerView.Adapter<AdvertAdapter.ViewHolder> {
-    private final List<Advert> adverts;
+    private final ArrayList<Advert> adverts;
     private final Context context;
 
-    public AdvertAdapter(List<Advert> adverts, Context context) {
+    public AdvertAdapter(ArrayList<Advert> adverts, Context context) {
         this.adverts = adverts;
         this.context = context;
     }

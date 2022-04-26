@@ -47,8 +47,12 @@
     <string name="price">Price</string>
     <string name="advert_images">Advert images</string>
     <string name="submit">Submit</string>
-    <string name="advert_list">Advert list</string>
+    <string name="advert_list">My Adverts</string>
     <string name="theme">Theme</string>
     <string name="empty_input">Inputs should not be empty</string>
     <string name="advert_added">Advert added</string>
+    <string name="settings">Settings</string>
+    <string name="createdAt">"Member since: "</string>
+    <string name="profile_cant_loaded">Profile details can\'t loaded</string>
+    <string name="advert_count">"Advert count: "</string>
 </resources>

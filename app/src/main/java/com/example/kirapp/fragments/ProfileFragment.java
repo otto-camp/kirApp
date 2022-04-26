@@ -28,9 +28,7 @@ import java.util.Objects;
 public class ProfileFragment extends Fragment {
     private final FirebaseAuth auth = FirebaseAuth.getInstance();
     private final FirebaseUser user = auth.getCurrentUser();
-    private final DatabaseReference databaseReference = FirebaseDatabase.getInstance()
-            .getReference("customers").child(Objects.requireNonNull(user).getUid());
-    String name, createdAt;
+    private final DatabaseReference customerReference = FirebaseDatabase.getInstance().getReference();
     private Customer customer = new Customer();
 
     @Override
@@ -39,39 +37,15 @@ public class ProfileFragment extends Fragment {
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        if (user != null) {
-            getProfile();
-        }
-    }
-
-    public void getProfile() {
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                customer = snapshot.getValue(Customer.class);
-                name = customer.getFirstname() + " " + customer.getLastname();
-                createdAt = customer.getCreatedAt();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getContext(), "Profile details can't loaded", Toast.LENGTH_LONG).show();
-            }
-        });
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         TextView tName = view.findViewById(R.id.user_name);
         TextView tCreatedAt = view.findViewById(R.id.user_created_at);
+        TextView tAdvertCount = view.findViewById(R.id.user_advert_count);
         MaterialButton signOut = view.findViewById(R.id.profile_sign_out);
 
-        tName.setText(name);
-        tCreatedAt.setText(createdAt);
+        getProfile(tName, tCreatedAt, tAdvertCount);
 
         signOut.setOnClickListener(view1 -> {
             auth.signOut();
@@ -79,6 +53,37 @@ public class ProfileFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private void getProfile(TextView tName, TextView tCreatedAt, TextView tAdvertCount) {
+        customerReference.child("customers").child(Objects.requireNonNull(user).getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                customer = snapshot.getValue(Customer.class);
+                String name = Objects.requireNonNull(customer).getFirstname() + " " + customer.getLastname();
+                String createdAt = getString(R.string.createdAt) + customer.getCreatedAt();
+                tName.setText(name);
+                tCreatedAt.setText(createdAt);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getContext(), R.string.profile_cant_loaded, Toast.LENGTH_LONG).show();
+            }
+        });
+        customerReference.child("adverts").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                long count = snapshot.getChildrenCount();
+                String c = getString(R.string.advert_count) + Long.toString(count);
+                tAdvertCount.setText(c);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
 }
