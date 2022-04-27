@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/login_layout"
     android:layout_width="match_parent"
@@ -24,41 +25,46 @@
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
                 android:hint="@string/email"
-                android:textColorHint="@color/blue_700">
+                android:minHeight="48dp"
+                app:helperText="@string/required"
+                app:helperTextTextColor="@android:color/holo_red_dark">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/user_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:background="@color/transparent_blue"
                     android:ems="10"
                     android:importantForAutofill="no"
                     android:inputType="textEmailAddress"
-                    android:minHeight="48dp"
                     tools:ignore="TextContrastCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
                 android:hint="@string/password"
-                android:textColorHint="@color/blue_700">
+                android:minHeight="48dp"
+                app:counterEnabled="true"
+                app:helperText="@string/required"
+                app:helperTextTextColor="@android:color/holo_red_dark"
+                app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/user_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:background="@color/transparent_blue"
                     android:ems="10"
                     android:importantForAutofill="no"
                     android:inputType="textPassword"
-                    android:minHeight="48dp"
+                    android:textColorHint="@color/black"
                     tools:ignore="TextContrastCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -81,7 +87,7 @@
                 android:layout_marginStart="48dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="48dp"
-                android:backgroundTint="@color/blue_400"
+                android:backgroundTint="@color/malachite_700"
                 android:drawableEnd="@drawable/ic_google"
                 android:text="@string/login_with"
                 android:textAllCaps="false"

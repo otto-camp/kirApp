@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/sapphire_500"
+    android:background="?attr/colorPrimary"
+    android:orientation="vertical"
     tools:context=".fragments.AddAdvertFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:contentDescription="@string/app_name"
+        android:src="@mipmap/ic_blue_1_foreground" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:ignore="UselessParent">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -17,29 +25,23 @@
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/name">
+                android:layout_marginHorizontal="20dp"
+                android:hint="@string/name"
+                android:minHeight="48dp"
+                app:helperText="@string/required"
+                app:helperTextTextColor="@android:color/holo_red_dark">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/advert_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="16dp"
                     android:inputType="text"
-                    android:minHeight="40dp"
                     tools:ignore="TextContrastCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginStart="16dp"
-                android:text="@string/advert_images"
-                android:textColor="@color/white"
-                android:textSize="22sp" />
 
             <ImageButton
                 android:id="@+id/advert_image"
@@ -50,33 +52,41 @@
                 android:src="@drawable/ic_baseline_image" />
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/description">
+                android:layout_marginHorizontal="20dp"
+                android:hint="@string/description"
+                android:minHeight="48dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="255"
+                app:helperText="@string/required"
+                app:helperTextTextColor="@android:color/holo_red_dark">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/advert_description"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="16dp"
                     android:inputType="text"
-                    android:minHeight="160dp"
                     tools:ignore="TextContrastCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/price">
+                android:layout_marginHorizontal="20dp"
+                android:hint="@string/price"
+                android:minHeight="48dp"
+                app:helperText="@string/required"
+                app:helperTextTextColor="@android:color/holo_red_dark">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/advert_price"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="16dp"
                     android:inputType="text"
-                    android:minHeight="40dp"
                     tools:ignore="TextContrastCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -89,7 +99,6 @@
                 android:text="@string/submit"
                 android:textAllCaps="false"
                 android:textSize="24sp" />
-
         </LinearLayout>
     </ScrollView>
-</FrameLayout>
+</LinearLayout>

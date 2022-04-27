@@ -1,4 +1,4 @@
-    <resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.KirApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
@@ -14,6 +14,6 @@
         <!-- Customize your theme here. -->
         <item name="android:textColor">?attr/colorOnSecondary</item>
         <item name="android:color">?attr/colorOnPrimary</item>
-        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="hintTextColor">?attr/colorOnSecondary</item>
     </style>
 </resources>

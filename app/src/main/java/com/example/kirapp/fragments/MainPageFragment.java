@@ -27,6 +27,7 @@ public class MainPageFragment extends Fragment {
     private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("adverts");
     private final ArrayList<Advert> adverts = new ArrayList<>();
     private final AdvertAdapter advertAdapter = new AdvertAdapter(adverts, getContext());
+    private Advert advert = new Advert();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,31 +43,31 @@ public class MainPageFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(manager);
-        recyclerView.setAdapter(advertAdapter);
+        getAdverts(recyclerView);
 
-        // FIXME: 27.04.2022
+        return view;
+    }
+
+    private void getAdverts(RecyclerView recyclerView) {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 adverts.clear();
                 Map<String, Advert> map = new HashMap<>();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    for (Map.Entry<String, Advert> entry : map.entrySet()) {
-                        String key = entry.getKey();
-                        Advert advert = entry.getValue();
-                        adverts.add(advert);
+                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                        advert = dataSnapshot1.getValue(Advert.class);
+                        map.put(dataSnapshot1.getKey(), advert);
                     }
-
-                    advertAdapter.notifyDataSetChanged();
                 }
+                adverts.addAll(map.values());
+                recyclerView.setAdapter(advertAdapter);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-
-        return view;
     }
 
 }
