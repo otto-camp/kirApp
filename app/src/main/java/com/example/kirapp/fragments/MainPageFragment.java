@@ -49,7 +49,7 @@ public class MainPageFragment extends Fragment {
     }
 
     private void getAdverts(RecyclerView recyclerView) {
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference.orderByValue().limitToLast(20).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 adverts.clear();

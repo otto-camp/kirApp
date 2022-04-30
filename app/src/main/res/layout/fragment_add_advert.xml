@@ -31,6 +31,8 @@
                 android:layout_marginHorizontal="20dp"
                 android:hint="@string/name"
                 android:minHeight="48dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="60"
                 app:helperText="@string/required"
                 app:helperTextTextColor="@android:color/holo_red_dark">
 

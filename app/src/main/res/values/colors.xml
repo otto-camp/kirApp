@@ -29,6 +29,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="transparent_blue">#1A8190D5</color>
+    <color name="transparent_white">#11FFFFFF</color>
     <color name="bg">#FF4169e1</color>
     <color name="bgg">#FFEFE2BA</color>
     <color name="bggg">#FFC2CAD0</color>

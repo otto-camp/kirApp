@@ -90,7 +90,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_margin="8dp"
+                    android:layout_marginHorizontal="32dp"
+                    android:layout_marginVertical="8dp"
                     android:backgroundTint="@color/blue_700"
                     android:text="@string/edit_profile"
                     android:textAllCaps="false"
@@ -101,9 +102,10 @@
                     android:id="@+id/user_advert_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginHorizontal="32dp"
+                    android:layout_marginVertical="8dp"
                     android:backgroundTint="@color/blue_700"
-                    android:gravity="center"
                     android:text="@string/advert_list"
                     android:textAllCaps="false"
                     android:textSize="22sp"
@@ -113,9 +115,10 @@
                     android:id="@+id/user_settings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginHorizontal="32dp"
+                    android:layout_marginVertical="8dp"
                     android:backgroundTint="@color/blue_700"
-                    android:gravity="center"
                     android:text="@string/settings"
                     android:textAllCaps="false"
                     android:textSize="22sp"
@@ -125,17 +128,13 @@
                     android:id="@+id/profile_sign_out"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/beyaz1"
+                    android:layout_gravity="center_horizontal"
+                    android:backgroundTint="@color/blue_700"
                     android:text="@string/sign_out"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
                     android:textSize="22sp"
                     app:cornerRadius="10dp" />
-
             </LinearLayout>
-
         </ScrollView>
-
     </RelativeLayout>
-
 </FrameLayout>

@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="140dp"
         android:contentDescription="@string/app_name"
-        android:src="@mipmap/ic_blue_1_foreground" />
+        android:src="@mipmap/ic_blue_3_foreground" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -30,15 +30,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:hint="@string/email"
-                android:minHeight="48dp"
-                app:helperText="@string/required"
-                app:helperTextTextColor="@android:color/holo_red_dark">
+                android:minHeight="48dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/user_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
                     android:importantForAutofill="no"
                     android:inputType="textEmailAddress"
                     tools:ignore="TextContrastCheck" />
@@ -50,18 +47,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="24dp"
                 android:hint="@string/password"
                 android:minHeight="48dp"
                 app:counterEnabled="true"
-                app:helperText="@string/required"
-                app:helperTextTextColor="@android:color/holo_red_dark"
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/user_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
                     android:importantForAutofill="no"
                     android:inputType="textPassword"
                     android:textColorHint="@color/black"

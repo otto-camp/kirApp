@@ -43,7 +43,7 @@
     <string name="sign_out">Sign Out</string>
     <string name="message">Message</string>
     <string name="advert">Advert</string>
-    <string name="description"><font size="64">Description</font></string>
+    <string name="description">Description</string>
     <string name="price">Price</string>
     <string name="advert_images">Advert images</string>
     <string name="submit">Submit</string>
@@ -56,4 +56,12 @@
     <string name="profile_cant_loaded">Profile details can\'t loaded</string>
     <string name="advert_count">"Advert count: "</string>
     <string name="required">Required</string>
+    <string name="advert_image">advert_image</string>
+    <string name="advert_like_count">Advert like count</string>
+    <string name="send_message">Send Message</string>
+    <string name="like">Like</string>
+    <string name="share">Share</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="category">Category</string>
+    <string name="sub_category">Sub Category</string>
 </resources>
