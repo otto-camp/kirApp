@@ -133,7 +133,6 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-
     private void signInWithGoogle(View view) {
         Intent intent = googleSignInClient.getSignInIntent();
         startForResult.launch(intent);

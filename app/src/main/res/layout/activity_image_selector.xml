@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:orientation="vertical"
+    tools:context=".utils.ImageSelectorActivity">
+
+    <ImageView
+        android:id="@+id/select_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="20"
+        android:contentDescription="@string/select_images" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/select_image_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_images"
+        android:textAllCaps="false"
+        android:textSize="40sp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/upload_image_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/upload_image"
+        android:textAllCaps="false"
+        android:textSize="40sp" />
+</LinearLayout>

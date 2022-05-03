@@ -1,5 +1,9 @@
 package com.example.kirapp.models;
 
+import android.media.Image;
+
+import androidx.annotation.NonNull;
+
 public class Advert {
     private String id;
     private String name;
@@ -22,7 +26,7 @@ public class Advert {
         this.status = status;
     }
 
-    public Advert(String name, String createdAt, String updatedAt, String description, double price, boolean status) {
+    public Advert(String name, String createdAt, String updatedAt, String description, double price, boolean status, Image advertImage) {
         this.name = name;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -31,6 +35,7 @@ public class Advert {
         this.status = status;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Advert{" +

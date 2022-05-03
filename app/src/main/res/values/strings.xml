@@ -64,4 +64,8 @@
     <string name="bookmark">Bookmark</string>
     <string name="category">Category</string>
     <string name="sub_category">Sub Category</string>
+    <string name="add_images">Add images</string>
+    <string name="take_picture">Take picture</string>
+    <string name="select_images">Select images</string>
+    <string name="upload_image">Upload image</string>
 </resources>

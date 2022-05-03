@@ -40,12 +40,18 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
+
+
         TextView tName = view.findViewById(R.id.user_name);
         TextView tCreatedAt = view.findViewById(R.id.user_created_at);
         TextView tAdvertCount = view.findViewById(R.id.user_advert_count);
         MaterialButton signOut = view.findViewById(R.id.profile_sign_out);
 
-        getProfile(tName, tCreatedAt, tAdvertCount);
+        if (user == null) {
+            startActivity(new Intent(getContext(), LoginActivity.class));
+        } else {
+            getProfile(tName, tCreatedAt, tAdvertCount);
+        }
 
         signOut.setOnClickListener(view1 -> {
             auth.signOut();
@@ -75,7 +81,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 long count = snapshot.getChildrenCount();
-                String c = getString(R.string.advert_count) + Long.toString(count);
+                String c = getString(R.string.advert_count) + count;
                 tAdvertCount.setText(c);
             }
 
