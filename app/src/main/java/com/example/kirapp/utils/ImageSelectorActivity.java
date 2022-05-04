@@ -1,12 +1,14 @@
 package com.example.kirapp.utils;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.kirapp.R;
@@ -22,6 +24,7 @@ public class ImageSelectorActivity extends AppCompatActivity {
     private MaterialButton selectImageBtn, uploadImageBtn;
     private ImageView selectImage;
     private Uri imageUri;
+    private final ActivityResultLauncher<Intent> startForResult = getStartForResult();
     private StorageReference storageReference;
 
     @Override
@@ -34,6 +37,8 @@ public class ImageSelectorActivity extends AppCompatActivity {
 
         selectImageBtn.setOnClickListener(s -> selectImage());
         uploadImageBtn.setOnClickListener(u -> uploadImage());
+
+
     }
 
     public void uploadImage() {
@@ -52,15 +57,15 @@ public class ImageSelectorActivity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent, 100);
+        startForResult.launch(intent);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 100 && data != null && data.getData() != null) {
-            imageUri = data.getData();
-            selectImage.setImageURI(imageUri);
-        }
+    public ActivityResultLauncher<Intent> getStartForResult() {
+        return registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if (result.getResultCode() == Activity.RESULT_OK) {
+                imageUri = result.getData().getData();
+                selectImage.setImageURI(imageUri);
+            }
+        });
     }
 }
