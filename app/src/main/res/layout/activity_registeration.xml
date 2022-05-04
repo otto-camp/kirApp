@@ -31,8 +31,11 @@
                 android:layout_marginHorizontal="20dp"
                 android:hint="@string/name"
                 android:minHeight="48dp"
+                app:boxStrokeColor="@color/beyaz2"
+                app:boxStrokeWidth="2dp"
                 app:helperText="@string/required"
-                app:helperTextTextColor="@android:color/holo_red_dark">
+                app:helperTextTextColor="@android:color/holo_red_dark"
+                app:hintTextColor="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/user_firstname"
@@ -51,8 +54,11 @@
                 android:layout_marginHorizontal="20dp"
                 android:hint="@string/surname"
                 android:minHeight="48dp"
+                app:boxStrokeColor="@color/beyaz2"
+                app:boxStrokeWidth="2dp"
                 app:helperText="@string/required"
-                app:helperTextTextColor="@android:color/holo_red_dark">
+                app:helperTextTextColor="@android:color/holo_red_dark"
+                app:hintTextColor="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/user_lastname"
@@ -71,8 +77,11 @@
                 android:layout_marginHorizontal="20dp"
                 android:hint="@string/email"
                 android:minHeight="48dp"
+                app:boxStrokeColor="@color/beyaz2"
+                app:boxStrokeWidth="2dp"
                 app:helperText="@string/required"
-                app:helperTextTextColor="@android:color/holo_red_dark">
+                app:helperTextTextColor="@android:color/holo_red_dark"
+                app:hintTextColor="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/user_email"
@@ -91,8 +100,11 @@
                 android:layout_marginHorizontal="20dp"
                 android:hint="@string/password"
                 android:minHeight="48dp"
+                app:boxStrokeColor="@color/beyaz2"
+                app:boxStrokeWidth="2dp"
                 app:helperText="@string/required"
-                app:helperTextTextColor="@android:color/holo_red_dark">
+                app:helperTextTextColor="@android:color/holo_red_dark"
+                app:hintTextColor="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/user_password"
@@ -128,8 +140,11 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/phone"
                     android:minHeight="48dp"
+                    app:boxStrokeColor="@color/beyaz2"
+                    app:boxStrokeWidth="2dp"
                     app:helperText="@string/required"
-                    app:helperTextTextColor="@android:color/holo_red_dark">
+                    app:helperTextTextColor="@android:color/holo_red_dark"
+                    app:hintTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/user_phone"

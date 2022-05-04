@@ -24,6 +24,7 @@
     <color name="blue_300">#FF8190D5</color>
     <color name="blue_200">#FFABB5E3</color>
     <color name="blue_100">#FFD5DAF1</color>
+    <color name="black_100">#FF2F2F2F</color>
     <color name="black_200">#FF1A1A1A</color>
     <color name="black_300">#FF515151</color>
     <color name="black">#FF000000</color>

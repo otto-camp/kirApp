@@ -5,7 +5,6 @@
     android:id="@+id/add_advert_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorPrimary"
     android:orientation="vertical"
     tools:context=".fragments.AddAdvertFragment">
 
@@ -32,10 +31,13 @@
                 android:layout_marginHorizontal="20dp"
                 android:hint="@string/name"
                 android:minHeight="48dp"
+                app:boxStrokeColor="@color/beyaz2"
+                app:boxStrokeWidth="2dp"
                 app:counterEnabled="true"
                 app:counterMaxLength="60"
                 app:helperText="@string/required"
-                app:helperTextTextColor="@android:color/holo_red_dark">
+                app:helperTextTextColor="@android:color/holo_red_dark"
+                app:hintTextColor="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/advert_name"
@@ -53,10 +55,13 @@
                 android:layout_marginHorizontal="20dp"
                 android:hint="@string/description"
                 android:minHeight="48dp"
+                app:boxStrokeColor="@color/beyaz2"
+                app:boxStrokeWidth="2dp"
                 app:counterEnabled="true"
                 app:counterMaxLength="255"
                 app:helperText="@string/required"
-                app:helperTextTextColor="@android:color/holo_red_dark">
+                app:helperTextTextColor="@android:color/holo_red_dark"
+                app:hintTextColor="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/advert_description"
@@ -74,8 +79,11 @@
                 android:layout_marginHorizontal="20dp"
                 android:hint="@string/price"
                 android:minHeight="48dp"
+                app:boxStrokeColor="@color/beyaz2"
+                app:boxStrokeWidth="2dp"
                 app:helperText="@string/required"
-                app:helperTextTextColor="@android:color/holo_red_dark">
+                app:helperTextTextColor="@android:color/holo_red_dark"
+                app:hintTextColor="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/advert_price"
@@ -94,10 +102,12 @@
                 android:contentDescription="@string/advert_image"
                 android:text="@string/add_images"
                 android:textAllCaps="false"
-                android:textColor="?attr/colorOnPrimary"
+                android:textColor="@color/black"
                 android:textSize="22sp"
-                app:icon="@drawable/ic_baseline_image"
-                app:iconTint="?attr/colorOnPrimary" />
+                app:icon="@drawable/ic_image"
+                app:iconGravity="textTop"
+                app:iconSize="64dp"
+                app:iconTint="@color/black" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/advert_add_button"

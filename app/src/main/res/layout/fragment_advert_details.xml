@@ -49,8 +49,8 @@
             android:paddingHorizontal="8dp"
             android:paddingVertical="2dp"
             android:text="@string/advert_like_count"
-            app:drawableStartCompat="@drawable/ic_baseline_favorite"
-            app:drawableTint="@color/blue_900" />
+            app:drawableStartCompat="@drawable/ic_heart"
+            app:drawableTint="@color/black" />
 
         <LinearLayout
             android:id="@+id/advert_post_detail_container"
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:text="@string/category"
-                android:textColor="@color/malachite_200"
+                android:textColor="@color/malachite_700"
                 android:textStyle="bold" />
 
             <com.google.android.material.button.MaterialButton
@@ -79,7 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:text="@string/sub_category"
-                android:textColor="@color/malachite_200"
+                android:textColor="@color/malachite_700"
                 android:textStyle="bold" />
 
             <TextView
@@ -128,7 +128,7 @@
                 android:contentDescription="@string/message"
                 android:text="@string/send_message"
                 android:textColor="@color/white"
-                app:icon="@drawable/ic_baseline_message_24"
+                app:icon="@drawable/ic_chat_bubble"
                 app:iconTint="@color/white" />
         </LinearLayout>
 

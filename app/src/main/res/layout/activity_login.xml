@@ -29,15 +29,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:hint="@string/email"
-                android:minHeight="48dp">
+                android:minHeight="48dp"
+                app:boxStrokeColor="@color/beyaz2"
+                app:boxStrokeWidth="2dp"
+                app:hintTextColor="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/user_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:importantForAutofill="no"
-                    android:inputType="textEmailAddress"
-                    tools:ignore="TextContrastCheck" />
+                    android:inputType="textEmailAddress" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -49,7 +51,10 @@
                 android:layout_marginTop="24dp"
                 android:hint="@string/password"
                 android:minHeight="48dp"
+                app:boxStrokeColor="@color/beyaz2"
+                app:boxStrokeWidth="2dp"
                 app:counterEnabled="true"
+                app:hintTextColor="@color/black"
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
