@@ -1,33 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/mainPageFragment"
+        android:enabled="true"
         android:icon="@drawable/ic_home"
-        android:title="@string/main_page"
-        app:showAsAction="ifRoom" />
+        android:title="@string/main_page" />
 
     <item
         android:id="@+id/searchFragment"
+        android:enabled="true"
         android:icon="@drawable/ic_search"
-        android:title="@string/search"
-        app:showAsAction="ifRoom" />
+        android:title="@string/search" />
 
     <item
         android:id="@+id/holder"
         android:enabled="false"
-        android:title=""
-        app:showAsAction="ifRoom" />
+        android:title="" />
 
     <item
         android:id="@+id/messageFragment"
+        android:enabled="true"
         android:icon="@drawable/ic_chat_bubble"
-        android:title="@string/message"
-        app:showAsAction="ifRoom" />
+        android:title="@string/message" />
 
     <item
         android:id="@+id/profileFragment"
+        android:enabled="true"
         android:icon="@drawable/ic_person"
-        android:title="@string/profile"
-        app:showAsAction="ifRoom" />
+        android:title="@string/profile" />
 </menu>

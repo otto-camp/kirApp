@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,44 +10,42 @@
     <FrameLayout
         android:id="@+id/main_frame_layout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_height="match_parent" />
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppbar"
+        style="@style/Widget.Material3.BottomAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom">
+        android:layout_gravity="bottom"
+        android:background="@android:color/transparent"
+        app:elevation="8dp"
+        app:hideOnScroll="true">
 
-        <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/bottomAppbar"
-            style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:fabCradleMargin="15dp"
-            app:fabCradleRoundedCornerRadius="40dp"
-            app:hideOnScroll="true">
-
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottomNavigationView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                app:itemIconTint="@color/bottom_appbar_item_background"
-                app:itemRippleColor="@android:color/transparent"
-                app:itemTextColor="@color/bottom_appbar_item_background"
-                app:labelVisibilityMode="selected"
-                app:menu="@menu/bottom_appbar" />
-        </com.google.android.material.bottomappbar.BottomAppBar>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/add_advert_btn"
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            style="@style/Widget.MaterialComponents.BottomNavigationView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/blue_300"
-            android:contentDescription="@string/add"
-            android:src="@drawable/ic_plus"
-            app:layout_anchor="@id/bottomAppbar"
-            app:maxImageSize="30dp" />
+            android:layout_marginEnd="16dp"
+            android:background="@android:color/transparent"
+            app:elevation="0dp"
+            app:itemIconSize="26dp"
+            app:itemIconTint="@color/bottom_appbar_item_background"
+            app:itemRippleColor="@android:color/transparent"
+            app:itemTextColor="@color/bottom_appbar_item_background"
+            app:labelVisibilityMode="selected"
+            app:menu="@menu/bottom_appbar" />
+    </com.google.android.material.bottomappbar.BottomAppBar>
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-</LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_advert_btn"
+        style="@style/Fab.Style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/add"
+        android:src="@drawable/ic_plus"
+        app:layout_anchor="@id/bottomAppbar"
+        app:maxImageSize="36dp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         FloatingActionButton floatingActionButton = findViewById(R.id.add_advert_btn);
+
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.main_frame_layout, new MainPageFragment()).commit();
