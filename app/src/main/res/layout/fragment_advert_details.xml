@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorPrimary"
     tools:context=".fragments.AdvertDetailsFragment">
 
     <RelativeLayout
@@ -88,8 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:text="@string/createdAt"
-                android:textColor="@color/white" />
+                android:text="@string/createdAt" />
         </LinearLayout>
 
         <LinearLayout
@@ -105,7 +103,8 @@
                 android:id="@+id/advert_post_user_pp"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="16dp"
+                android:layout_margin="8dp"
+                android:layout_gravity="center_vertical"
                 android:src="@mipmap/ic_blue_2"
                 app:shapeAppearanceOverlay="@style/imageViewRounded" />
 
@@ -127,6 +126,7 @@
                 android:layout_gravity="center_vertical|end"
                 android:contentDescription="@string/message"
                 android:text="@string/send_message"
+                android:layout_marginEnd="16dp"
                 android:textColor="@color/white"
                 app:icon="@drawable/ic_chat_bubble"
                 app:iconTint="@color/white" />

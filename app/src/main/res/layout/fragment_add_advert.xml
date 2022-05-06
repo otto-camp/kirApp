@@ -35,7 +35,6 @@
                 app:boxStrokeWidth="2dp"
                 app:counterEnabled="true"
                 app:counterMaxLength="60"
-                app:helperText="@string/required"
                 app:helperTextTextColor="@android:color/holo_red_dark"
                 app:hintTextColor="@color/black">
 
@@ -59,7 +58,6 @@
                 app:boxStrokeWidth="2dp"
                 app:counterEnabled="true"
                 app:counterMaxLength="255"
-                app:helperText="@string/required"
                 app:helperTextTextColor="@android:color/holo_red_dark"
                 app:hintTextColor="@color/black">
 
@@ -81,7 +79,6 @@
                 android:minHeight="48dp"
                 app:boxStrokeColor="@color/beyaz2"
                 app:boxStrokeWidth="2dp"
-                app:helperText="@string/required"
                 app:helperTextTextColor="@android:color/holo_red_dark"
                 app:hintTextColor="@color/black">
 
@@ -105,15 +102,21 @@
                 android:textColor="@color/black"
                 android:textSize="22sp"
                 app:icon="@drawable/ic_image"
-                app:iconGravity="textTop"
-                app:iconSize="64dp"
+                app:iconGravity="textStart"
+                app:iconSize="16dp"
                 app:iconTint="@color/black" />
+
+            <ImageView
+                android:id="@+id/advert_selected_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/advert_image" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/advert_add_button"
+                style="@style/Widget.Material3.Button.TextButton.Dialog"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Widget.Material3.Button.TextButton.Dialog"
                 android:layout_margin="32dp"
                 android:backgroundTint="@color/blue_500"
                 android:text="@string/submit"

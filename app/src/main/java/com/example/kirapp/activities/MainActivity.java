@@ -17,7 +17,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
-    private Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView.setSelectedItemId(R.id.mainPageFragment);
         bottomNavigationView.setOnItemSelectedListener(item -> {
+                    Fragment fragment = null;
                     if (item.getItemId() == R.id.mainPageFragment) {
                         fragment = new MainPageFragment();
                     }
@@ -53,7 +53,10 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
         );
-        floatingActionButton.setOnClickListener(view -> fragment = new AddAdvertFragment());
+        floatingActionButton.setOnClickListener(view -> getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.main_frame_layout, new AddAdvertFragment())
+                .commit());
 
 
     }

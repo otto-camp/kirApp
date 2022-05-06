@@ -20,7 +20,9 @@
         android:layout_gravity="bottom"
         android:background="@android:color/transparent"
         app:elevation="8dp"
-        app:hideOnScroll="true">
+        app:fabCradleMargin="0dp"
+        app:fabCradleRoundedCornerRadius="0dp"
+        app:fabCradleVerticalOffset="0dp">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigationView"

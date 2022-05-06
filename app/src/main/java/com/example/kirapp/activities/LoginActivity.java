@@ -5,7 +5,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -17,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.kirapp.R;
 import com.example.kirapp.models.Customer;
+import com.example.kirapp.utils.Validator.TextInputValidator;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -24,6 +24,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -39,10 +40,18 @@ public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LOGIN";
     private static final int RC_SIGN_IN = 9001;
     private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("customers");
-    private EditText email, password;
+    private TextInputValidator validator;
+    private TextInputEditText email, password;
     private FirebaseAuth auth;
     ActivityResultLauncher<Intent> startForResult = getIntentActivityResultLauncher();
     private GoogleSignInClient googleSignInClient;
+
+    public LoginActivity(TextInputValidator validator) {
+        this.validator = validator;
+    }
+
+    public LoginActivity() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,7 +135,7 @@ public class LoginActivity extends AppCompatActivity {
     private ActivityResultLauncher<Intent> getIntentActivityResultLauncher() {
         return registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
             if (Objects.requireNonNull(result).getResultCode() == RC_SIGN_IN) {
-                Intent intent = null;
+                Intent intent = new Intent();
                 Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(intent);
                 handleSignInResult(task);
             }

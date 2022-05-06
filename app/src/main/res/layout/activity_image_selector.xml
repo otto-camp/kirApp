@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:baselineAligned="false"
     android:orientation="vertical"
+    android:id="@+id/image_selector_activity"
     tools:context=".utils.ImageSelectorActivity">
 
     <ImageView

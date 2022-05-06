@@ -1,11 +1,12 @@
 package com.example.kirapp.fragments;
 
-import android.Manifest;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -25,13 +26,12 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class AddAdvertFragment extends Fragment {
-    private static final String[] CAMERA_PERMISSION = new String[]{Manifest.permission.CAMERA};
-    private static final int CAMERA_REQUEST_CODE = 10;
     private final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("adverts");
     private final Advert advert = new Advert();
     private TextInputEditText etName, etDescription, etPrice;
     private MaterialButton submit, imageBtn;
+    private ImageView imageView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,8 +51,15 @@ public class AddAdvertFragment extends Fragment {
         etPrice = view.findViewById(R.id.advert_price);
         submit = view.findViewById(R.id.advert_add_button);
         imageBtn = view.findViewById(R.id.advert_image);
-        imageBtn.setOnClickListener(v -> startActivity(new Intent(getContext(), ImageSelectorActivity.class)));
+        imageView = view.findViewById(R.id.advert_selected_image);
+
+        imageBtn.setOnClickListener(view1 -> startActivity(new Intent(getContext(), ImageSelectorActivity.class)));
         submit.setOnClickListener(this::submitAdvert);
+
+        if (getArguments() != null) {
+            Uri imageUri = Uri.parse(getArguments().getString(user.getUid()));
+            imageView.setImageURI(imageUri);
+        }
 
         return view;
     }

@@ -32,6 +32,7 @@
                 android:minHeight="48dp"
                 app:boxStrokeColor="@color/beyaz2"
                 app:boxStrokeWidth="2dp"
+                app:helperTextTextColor="@android:color/holo_red_dark"
                 app:hintTextColor="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -55,6 +56,7 @@
                 app:boxStrokeColor="@color/beyaz2"
                 app:boxStrokeWidth="2dp"
                 app:counterEnabled="true"
+                app:helperTextTextColor="@android:color/holo_red_dark"
                 app:hintTextColor="@color/black"
                 app:passwordToggleEnabled="true">
 

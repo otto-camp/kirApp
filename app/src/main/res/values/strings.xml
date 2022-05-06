@@ -36,6 +36,7 @@
     <string name="p_empty">Please enter minimum 8 characters length password</string>
     <string name="pn_empty">Please enter phone number</string>
     <string name="g_empty">Please select gender</string>
+    <string name="input_empty">Field can not be empty</string>
     <string name="register_error">Failed to create account</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="email_not_verified">You need to verify your email</string>
@@ -69,4 +70,6 @@
     <string name="select_images">Select images</string>
     <string name="upload_image">Upload image</string>
     <string name="add">add</string>
+    <string name="email_isnot_valid">Email is not valid</string>
+    <string name="password_isnot_valid">Password is not valid</string>
 </resources>

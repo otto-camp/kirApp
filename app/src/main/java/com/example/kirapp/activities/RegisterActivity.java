@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.kirapp.R;
 import com.example.kirapp.models.Customer;
+import com.example.kirapp.utils.Validator.TextInputValidator;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.textfield.TextInputEditText;
@@ -37,6 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
     private CountryCodePicker cpp;
     private FirebaseAuth auth;
     private FirebaseUser user;
+    private TextInputValidator validator;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override

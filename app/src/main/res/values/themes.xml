@@ -20,10 +20,11 @@
         <item name="shapeAppearanceOverlay">@style/Fab.Shape.Style</item>
         <item name="android:backgroundTint">@color/black_100</item>
         <item name="android:tint">@color/blue_100</item>
+        <item name="rippleColor">@color/blue_700</item>
     </style>
 
     <style name="Fab.Shape.Style" parent="ShapeAppearance.MaterialComponents.SmallComponent">
-        <item name="cornerFamily">cut</item>
+        <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
 </resources>
