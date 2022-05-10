@@ -6,13 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activities.LoginActivity">
+    tools:context=".activities.LoginActivity"
+    tools:viewBindingIgnore="true">
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="150dp"
         android:contentDescription="@string/app_name"
-        android:src="@mipmap/ic_blue_3_foreground" />
+        android:src="@mipmap/ic_blue_1_foreground" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -73,12 +74,12 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/login_btn"
+                style="@style/SubmitButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="48dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="48dp"
-                android:backgroundTint="@color/blue_600"
                 android:text="@string/login"
                 android:textSize="24sp" />
 
@@ -90,10 +91,12 @@
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="48dp"
                 android:backgroundTint="@color/malachite_700"
-                android:drawableEnd="@drawable/ic_google"
                 android:text="@string/login_with"
                 android:textAllCaps="false"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                app:icon="@drawable/ic_google"
+                app:iconGravity="textEnd"
+                app:iconSize="24dp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -104,21 +107,19 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/forgot_password_btn"
-                    style="@style/Widget.Material3.Button.TextButton"
+                    style="@style/TonalButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
-                    android:text="@string/forgot_password"
-                    android:textColor="@color/blue_700" />
+                    android:text="@string/forgot_password" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/register_btn"
-                    style="@style/Widget.Material3.Button.TextButton"
+                    style="@style/TonalButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:text="@string/register"
-                    android:textColor="@color/blue_700" />
+                    android:text="@string/register" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

@@ -27,6 +27,7 @@
     <color name="black_100">#FF2F2F2F</color>
     <color name="black_200">#FF1A1A1A</color>
     <color name="black_300">#FF515151</color>
+    <color name="black_400">#FF121212</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="transparent_blue">#1A8190D5</color>
@@ -37,4 +38,6 @@
     <color name="beyaz1">#FFEDC7B7</color>
     <color name="beyaz2">#FFEEE2DC</color>
     <color name="beyaz3">#FF8e9eab</color>
+    <color name="red">#FFB00020</color>
+    <color name="red_100">#FFCF6679</color>
 </resources>

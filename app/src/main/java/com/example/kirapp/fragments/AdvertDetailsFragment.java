@@ -4,33 +4,25 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.kirapp.databinding.FragmentAdvertDetailsBinding;
-import com.google.android.material.button.MaterialButton;
-import com.google.android.material.imageview.ShapeableImageView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class AdvertDetailsFragment extends Fragment {
-    private TextView advertName, advertLikeCount, advertTimestamp, advertUsername, advertDescription;
-    private MaterialButton categoryBtn, subCategoryBtn, advertMessageBtn, advertLikebtn, advertBookmarkBtn, advertShareBtn;
-    private ImageView advertImage;
-    private ShapeableImageView userImage;
+    private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("adverts");
     private FragmentAdvertDetailsBinding binding;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentAdvertDetailsBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
+        String id = getArguments().getString("AdvertId");
+        binding.advertPostName.setText(id);
 
         return view;
     }
@@ -40,4 +32,10 @@ public class AdvertDetailsFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
+
+    public void onBackPressed() {
+
+    }
+
 }

@@ -5,14 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activities.RegisterActivity">
+    tools:context=".activities.RegisterActivity"
+    tools:viewBindingIgnore="true">
 
     <ImageView
         android:id="@+id/image_logo"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="150dp"
         android:contentDescription="@string/app_name"
-        android:src="@mipmap/ic_blue_3_foreground"
+        android:src="@mipmap/ic_blue_1_foreground"
         tools:ignore="ImageContrastCheck" />
 
     <ScrollView
@@ -34,7 +35,7 @@
                 app:boxStrokeColor="@color/beyaz2"
                 app:boxStrokeWidth="2dp"
                 app:helperTextTextColor="@android:color/holo_red_dark"
-                app:hintTextColor="@color/black">
+                app:hintTextColor="?attr/colorOnSecondary">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/user_firstname"
@@ -56,7 +57,7 @@
                 app:boxStrokeColor="@color/beyaz2"
                 app:boxStrokeWidth="2dp"
                 app:helperTextTextColor="@android:color/holo_red_dark"
-                app:hintTextColor="@color/black">
+                app:hintTextColor="?attr/colorOnSecondary">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/user_lastname"
@@ -78,7 +79,7 @@
                 app:boxStrokeColor="@color/beyaz2"
                 app:boxStrokeWidth="2dp"
                 app:helperTextTextColor="@android:color/holo_red_dark"
-                app:hintTextColor="@color/black">
+                app:hintTextColor="?attr/colorOnSecondary">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/user_email"
@@ -100,7 +101,7 @@
                 app:boxStrokeColor="@color/beyaz2"
                 app:boxStrokeWidth="2dp"
                 app:helperTextTextColor="@android:color/holo_red_dark"
-                app:hintTextColor="@color/black">
+                app:hintTextColor="?attr/colorOnSecondary">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/user_password"
@@ -123,9 +124,9 @@
                     style="@style/Theme.KirApp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    app:ccp_arrowColor="@color/black"
+                    app:ccp_arrowColor="?attr/colorOnSecondary"
                     app:ccp_autoDetectCountry="true"
-                    app:ccp_contentColor="@color/black"
+                    app:ccp_contentColor="?attr/colorOnSecondary"
                     app:ccp_countryAutoDetectionPref="SIM_LOCALE_NETWORK"
                     app:ccp_showFlag="true"
                     app:ccp_textGravity="LEFT" />
@@ -139,7 +140,7 @@
                     app:boxStrokeColor="@color/beyaz2"
                     app:boxStrokeWidth="2dp"
                     app:helperTextTextColor="@android:color/holo_red_dark"
-                    app:hintTextColor="@color/black">
+                    app:hintTextColor="?attr/colorOnSecondary">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/user_phone"
@@ -156,13 +157,11 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/user_birthdate"
-                style="@style/Widget.Material3.Button.ElevatedButton"
+                style="@style/ElevatedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:text="@string/birth_date"
-                android:textAllCaps="false"
-                android:textColor="@color/black" />
+                android:text="@string/birth_date" />
 
             <RadioGroup
                 android:id="@+id/user_gender"
@@ -200,26 +199,20 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/register_btn"
+                style="@style/SubmitButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="64dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="64dp"
-                android:backgroundTint="@color/blue_700"
                 android:text="@string/register" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/back_btn"
-                style="@style/Widget.Material3.Button.TextButton"
+                style="@style/TextButtonBack"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="24dp"
-                android:text="@string/back"
-                android:textColor="@android:color/holo_red_dark"
-                android:textSize="18sp" />
-
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </ScrollView>
 

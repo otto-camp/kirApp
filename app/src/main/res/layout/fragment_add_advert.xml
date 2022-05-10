@@ -6,11 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".fragments.AddAdvertFragment">
+    tools:context=".fragments.AddAdvertFragment"
+    tools:viewBindingIgnore="true">
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         android:layout_marginBottom="32dp"
         android:contentDescription="@string/app_name"
         android:src="@mipmap/ic_blue_1_foreground" />
@@ -99,12 +100,12 @@
                 android:contentDescription="@string/advert_image"
                 android:text="@string/add_images"
                 android:textAllCaps="false"
-                android:textColor="@color/black"
+                android:textColor="?attr/colorOnSecondary"
                 android:textSize="22sp"
                 app:icon="@drawable/ic_image"
                 app:iconGravity="textStart"
-                app:iconSize="16dp"
-                app:iconTint="@color/black" />
+                app:iconSize="22dp"
+                app:iconTint="?attr/colorOnSecondary" />
 
             <ImageView
                 android:id="@+id/advert_selected_image"
@@ -114,11 +115,10 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/advert_add_button"
-                style="@style/Widget.Material3.Button.TextButton.Dialog"
+                style="@style/SubmitButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="32dp"
-                android:backgroundTint="@color/blue_500"
                 android:text="@string/submit"
                 android:textAllCaps="false"
                 android:textSize="24sp" />

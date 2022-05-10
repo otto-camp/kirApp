@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="1"
-    tools:context=".fragments.ProfileFragment">
+    tools:context=".fragments.ProfileFragment"
+    tools:viewBindingIgnore="true">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -81,58 +82,45 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:orientation="vertical">
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/profile_edit"
+                    style="@style/ElevatedButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginHorizontal="32dp"
                     android:layout_marginVertical="8dp"
-                    android:backgroundTint="@color/blue_700"
-                    android:text="@string/edit_profile"
-                    android:textAllCaps="false"
-                    android:textSize="22sp"
-                    app:cornerRadius="10dp" />
+                    android:text="@string/edit_profile" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/user_advert_list"
+                    style="@style/ElevatedButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginHorizontal="32dp"
-                    android:layout_marginVertical="8dp"
-                    android:backgroundTint="@color/blue_700"
-                    android:text="@string/advert_list"
-                    android:textAllCaps="false"
-                    android:textSize="22sp"
-                    app:cornerRadius="10dp" />
+                    android:text="@string/advert_list" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/user_advert_bookmark"
+                    style="@style/ElevatedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bookmarks" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/user_settings"
+                    style="@style/ElevatedButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginHorizontal="32dp"
-                    android:layout_marginVertical="8dp"
-                    android:backgroundTint="@color/blue_700"
-                    android:text="@string/settings"
-                    android:textAllCaps="false"
-                    android:textSize="22sp"
-                    app:cornerRadius="10dp" />
+                    android:text="@string/settings" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/profile_sign_out"
+                    style="@style/ElevatedButtonRed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:backgroundTint="@color/blue_700"
-                    android:text="@string/sign_out"
-                    android:textAllCaps="false"
-                    android:textSize="22sp"
-                    app:cornerRadius="10dp" />
+                    android:text="@string/sign_out" />
             </LinearLayout>
         </ScrollView>
     </RelativeLayout>

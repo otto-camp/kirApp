@@ -6,7 +6,8 @@
     android:baselineAligned="false"
     android:orientation="vertical"
     android:id="@+id/image_selector_activity"
-    tools:context=".utils.ImageSelectorActivity">
+    tools:context=".utils.ImageSelectorActivity"
+    tools:viewBindingIgnore="true">
 
     <ImageView
         android:id="@+id/select_image"
