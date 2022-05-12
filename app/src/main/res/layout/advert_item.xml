@@ -40,11 +40,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@id/advert_image"
                 android:layout_alignEnd="@id/advert_image"
-
-                android:layout_marginStart="-"
-                android:layout_marginTop="-"
-                android:layout_marginEnd="-"
-                android:layout_marginBottom="-"
                 android:contentDescription="@string/bookmark"
                 app:icon="@drawable/ic_bookmark" />
 
