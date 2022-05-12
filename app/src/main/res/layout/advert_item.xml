@@ -5,47 +5,56 @@
     android:id="@+id/advert_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="12dp"
+    android:layout_margin="16dp"
     android:elevation="8dp"
-    app:cardCornerRadius="8dp"
-    tools:viewBindingIgnore="true">
+    app:cardCornerRadius="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorSecondaryVariant"
         android:baselineAligned="false"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <RelativeLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp">
 
             <ImageView
                 android:id="@+id/advert_image"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_margin="16dp"
+                android:layout_height="200dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="0dp"
                 android:contentDescription="@string/advert_images"
-                android:maxHeight="120dp"
-                android:minHeight="120dp"
+                android:maxHeight="200dp"
                 android:src="@mipmap/ic_blue_1" />
-        </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/advert_bookmark"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/advert_image"
+                android:layout_alignEnd="@id/advert_image"
+
+                android:layout_marginStart="-"
+                android:layout_marginTop="-"
+                android:layout_marginEnd="-"
+                android:layout_marginBottom="-"
+                android:contentDescription="@string/bookmark"
+                app:icon="@drawable/ic_bookmark" />
 
             <TextView
                 android:id="@+id/advert_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_alignBottom="@+id/advert_image"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="8dp"
                 android:text="@string/name"
                 android:textSize="24sp" />
 
@@ -53,7 +62,8 @@
                 android:id="@+id/advert_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
+                android:layout_alignEnd="@+id/advert_image"
+                android:layout_alignBottom="@+id/advert_image"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
@@ -62,12 +72,61 @@
                 android:textSize="18sp" />
         </RelativeLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/advert_category_btn"
+                style="@style/OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:ignore="TextContrastCheck" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/advert_subCategory_btn"
+                style="@style/OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/sub_category"
+                tools:ignore="TextContrastCheck" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/advert_user_pp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="8dp"
+                android:src="@mipmap/ic_blue_2"
+                app:shapeAppearanceOverlay="@style/imageViewRounded" />
+
+            <TextView
+                android:id="@+id/advert_post_user_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="80"
+                android:text="@string/name" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/advert_user_message_btn"
+                style="@style/OutlinedButtonText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:contentDescription="@string/message"
+                android:text="@string/send_message"
+                app:icon="@drawable/ic_chat_bubble" />
+        </LinearLayout>
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/advert_advert_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="visible"/>
-
 </com.google.android.material.card.MaterialCardView>

@@ -8,13 +8,15 @@ public class Advert {
     private String createdAt;
     private String updatedAt;
     private String description;
+    private String category;
+    private String subCategory;
     private double price;
     private boolean status;
 
     public Advert() {
     }
 
-    public Advert(String id, String name, String createdAt, String updatedAt, String description, double price, boolean status) {
+    public Advert(String id, String name, String createdAt, String updatedAt, String description, double price, boolean status, String category, String subCategory) {
         this.id = id;
         this.name = name;
         this.createdAt = createdAt;
@@ -22,15 +24,35 @@ public class Advert {
         this.description = description;
         this.price = price;
         this.status = status;
+        this.category = category;
+        this.subCategory = subCategory;
     }
 
-    public Advert(String name, String createdAt, String updatedAt, String description, double price, boolean status) {
+    public Advert(String name, String createdAt, String updatedAt, String description, double price, boolean status, String category, String subCategory) {
         this.name = name;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.description = description;
         this.price = price;
         this.status = status;
+        this.category = category;
+        this.subCategory = subCategory;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getSubCategory() {
+        return subCategory;
+    }
+
+    public void setSubCategory(String subCategory) {
+        this.subCategory = subCategory;
     }
 
     @NonNull
