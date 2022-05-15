@@ -1,128 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profile_fragment_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_weight="1"
-    tools:context=".fragments.ProfileFragment"
-    tools:viewBindingIgnore="true">
+    tools:context=".fragments.ProfileFragment">
 
     <RelativeLayout
+        android:id="@+id/profile_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bg_layout">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/user_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:adjustViewBounds="true"
+            android:maxWidth="150dp"
+            android:maxHeight="150dp"
+            android:scaleType="fitXY"
+            app:shapeAppearanceOverlay="@style/imageViewRounded"
+            app:srcCompat="@mipmap/ic_blue_2" />
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="32sp" />
+
+        <TextView
+            android:id="@+id/user_advert_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user_name"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="8dp"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/user_created_at"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user_advert_count"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="8dp"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/profile_layout"
-        tools:ignore="UselessParent">
+        android:layout_below="@+id/profile_header"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="64dp">
 
-        <RelativeLayout
-            android:id="@+id/profile_header"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/bg_layout">
+            android:orientation="vertical">
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/user_image"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:adjustViewBounds="true"
-                android:maxWidth="150dp"
-                android:maxHeight="150dp"
-                android:scaleType="fitXY"
-                app:shapeAppearanceOverlay="@style/imageViewRounded"
-                app:srcCompat="@mipmap/ic_blue_2" />
-
-            <TextView
-                android:id="@+id/user_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/user_image"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="16dp"
-                android:text="@string/app_name"
-                android:textColor="@color/white"
-                android:textSize="32sp" />
-
-            <TextView
-                android:id="@+id/user_advert_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/user_name"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="8dp"
-                android:text="@string/app_name"
-                android:textColor="@color/white"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/user_created_at"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/user_advert_count"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="8dp"
-                android:text="@string/app_name"
-                android:textColor="@color/white"
-                android:textSize="14sp" />
-
-        </RelativeLayout>
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/profile_header"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="64dp">
-
-            <LinearLayout
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/profile_edit"
+                style="@style/ElevatedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginVertical="8dp"
+                android:text="@string/edit_profile" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/profile_edit"
-                    style="@style/ElevatedButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginHorizontal="32dp"
-                    android:layout_marginVertical="8dp"
-                    android:text="@string/edit_profile" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/user_advert_list"
+                style="@style/ElevatedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/advert_list" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/user_advert_list"
-                    style="@style/ElevatedButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/advert_list" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/user_advert_bookmark"
+                style="@style/ElevatedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/bookmarks" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/user_advert_bookmark"
-                    style="@style/ElevatedButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/bookmarks" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/user_settings"
+                style="@style/ElevatedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/user_settings"
-                    style="@style/ElevatedButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/settings" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/profile_sign_out"
-                    style="@style/ElevatedButtonRed"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/sign_out" />
-            </LinearLayout>
-        </ScrollView>
-    </RelativeLayout>
-</FrameLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/profile_sign_out"
+                style="@style/ElevatedButtonRed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sign_out" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

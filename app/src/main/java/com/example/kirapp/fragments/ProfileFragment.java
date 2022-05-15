@@ -45,8 +45,6 @@ public class ProfileFragment extends Fragment {
         super.onAttach(context);
         if (user == null) {
             startActivity(new Intent(getContext(), LoginActivity.class));
-        } else {
-            getProfile(tName, tCreatedAt, tAdvertCount);
         }
     }
 
@@ -64,31 +62,40 @@ public class ProfileFragment extends Fragment {
         bookmarks = view.findViewById(R.id.user_advert_bookmark);
         settings = view.findViewById(R.id.user_settings);
 
-        FragmentManager manager = getChildFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-
-        buttonInit(transaction);
+        getProfile(tName, tCreatedAt, tAdvertCount);
+        buttonInit();
 
         return view;
     }
 
-    private void buttonInit(FragmentTransaction transaction) {
+    private void buttonInit() {
+        FragmentManager manager = requireActivity().getSupportFragmentManager();
+
         signOut.setOnClickListener(v -> {
             auth.signOut();
             startActivity(new Intent(getContext(), LoginActivity.class));
         });
 
-        editProfile.setOnClickListener(v -> transaction
-                .replace(R.id.profile_layout, new EditProfileFragment()).addToBackStack(null).commit());
+        editProfile.setOnClickListener(v -> {
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.replace(R.id.profile_fragment_layout, new EditProfileFragment()).addToBackStack(null).commit();
 
-        myAdverts.setOnClickListener(v -> transaction
-                .replace(R.id.profile_layout, new MyAdvertsFragment()).addToBackStack(null).commit());
+        });
 
-        bookmarks.setOnClickListener(v -> transaction
-                .replace(R.id.profile_layout, new BookmarksFragment()).addToBackStack(null).commit());
+        myAdverts.setOnClickListener(v -> {
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.replace(R.id.profile_fragment_layout, new MyAdvertsFragment()).addToBackStack(null).commit();
+        });
 
-        settings.setOnClickListener(v -> transaction
-                .replace(R.id.profile_layout, new SettingsFragment()).addToBackStack(null).commit());
+        bookmarks.setOnClickListener(v -> {
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.replace(R.id.profile_fragment_layout, new BookmarksFragment()).addToBackStack(null).commit();
+        });
+
+        settings.setOnClickListener(v -> {
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.replace(R.id.profile_fragment_layout, new SettingsFragment()).addToBackStack(null).commit();
+        });
     }
 
     private void getProfile(TextView tName, TextView tCreatedAt, TextView tAdvertCount) {
