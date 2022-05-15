@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/profile_advert_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/advert_image"
+        android:maxWidth="100dp"
+        android:maxHeight="100dp"
+        android:src="@mipmap/ic_blue_1" />
+
+    <TextView
+        android:id="@+id/profile_advert_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/profile_advert_image"
+        android:text="@string/advert" />
+
+    <TextView
+        android:id="@+id/profile_advert_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile_advert_name"
+        android:layout_toEndOf="@id/profile_advert_image"
+        android:text="@string/price" />
+</RelativeLayout>

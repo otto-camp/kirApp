@@ -1,5 +1,6 @@
 package com.example.kirapp.fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,9 +11,15 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.kirapp.R;
 import com.example.kirapp.activities.LoginActivity;
+import com.example.kirapp.fragments.profile.BookmarksFragment;
+import com.example.kirapp.fragments.profile.EditProfileFragment;
+import com.example.kirapp.fragments.profile.MyAdvertsFragment;
+import com.example.kirapp.fragments.profile.SettingsFragment;
 import com.example.kirapp.models.Customer;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,10 +37,17 @@ public class ProfileFragment extends Fragment {
     private final FirebaseUser user = auth.getCurrentUser();
     private final DatabaseReference customerReference = FirebaseDatabase.getInstance().getReference();
     private Customer customer = new Customer();
+    private TextView tName, tCreatedAt, tAdvertCount;
+    private MaterialButton signOut, editProfile, myAdverts, bookmarks, settings;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if (user == null) {
+            startActivity(new Intent(getContext(), LoginActivity.class));
+        } else {
+            getProfile(tName, tCreatedAt, tAdvertCount);
+        }
     }
 
     @Override
@@ -41,24 +55,40 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
+        tName = view.findViewById(R.id.user_name);
+        tCreatedAt = view.findViewById(R.id.user_created_at);
+        tAdvertCount = view.findViewById(R.id.user_advert_count);
+        signOut = view.findViewById(R.id.profile_sign_out);
+        editProfile = view.findViewById(R.id.profile_edit);
+        myAdverts = view.findViewById(R.id.user_advert_list);
+        bookmarks = view.findViewById(R.id.user_advert_bookmark);
+        settings = view.findViewById(R.id.user_settings);
 
-        TextView tName = view.findViewById(R.id.user_name);
-        TextView tCreatedAt = view.findViewById(R.id.user_created_at);
-        TextView tAdvertCount = view.findViewById(R.id.user_advert_count);
-        MaterialButton signOut = view.findViewById(R.id.profile_sign_out);
+        FragmentManager manager = getChildFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
 
-        if (user == null) {
-            startActivity(new Intent(getContext(), LoginActivity.class));
-        } else {
-            getProfile(tName, tCreatedAt, tAdvertCount);
-        }
+        buttonInit(transaction);
 
-        signOut.setOnClickListener(view1 -> {
+        return view;
+    }
+
+    private void buttonInit(FragmentTransaction transaction) {
+        signOut.setOnClickListener(v -> {
             auth.signOut();
             startActivity(new Intent(getContext(), LoginActivity.class));
         });
 
-        return view;
+        editProfile.setOnClickListener(v -> transaction
+                .replace(R.id.profile_layout, new EditProfileFragment()).addToBackStack(null).commit());
+
+        myAdverts.setOnClickListener(v -> transaction
+                .replace(R.id.profile_layout, new MyAdvertsFragment()).addToBackStack(null).commit());
+
+        bookmarks.setOnClickListener(v -> transaction
+                .replace(R.id.profile_layout, new BookmarksFragment()).addToBackStack(null).commit());
+
+        settings.setOnClickListener(v -> transaction
+                .replace(R.id.profile_layout, new SettingsFragment()).addToBackStack(null).commit());
     }
 
     private void getProfile(TextView tName, TextView tCreatedAt, TextView tAdvertCount) {

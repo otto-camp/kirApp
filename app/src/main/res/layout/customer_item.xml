@@ -19,26 +19,41 @@
         android:text="@string/name"
         android:textSize="20sp" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/admin_reset_photo"
-        style="@style/SubmitButton"
+    <TextView
+        android:id="@+id/admin_customer_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/admin_customer_name"
         android:layout_toEndOf="@id/admin_customer_image"
-        android:gravity="center_horizontal"
-        android:text="@string/reset"
-        android:textSize="24sp" />
+        android:text="@string/email"
+        android:textSize="20sp" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/admin_status"
-        style="@style/SubmitButton"
+    <TextView
+        android:id="@+id/admin_customer_birthdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/admin_reset_photo"
+        android:layout_below="@id/admin_customer_email"
         android:layout_toEndOf="@id/admin_customer_image"
-        android:gravity="center_horizontal"
-        android:text="@string/change_status"
-        android:textSize="24sp" />
+        android:text="@string/birth_date"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/admin_customer_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/admin_customer_birthdate"
+        android:layout_toEndOf="@id/admin_customer_image"
+        android:text="@string/phone"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/admin_customer_gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/admin_customer_phone"
+        android:layout_toEndOf="@id/admin_customer_image"
+        android:text="@string/gender"
+        android:textSize="20sp" />
+
 
 </RelativeLayout>

@@ -40,15 +40,7 @@ public class ListAllUsersFragment extends Fragment {
         recyclerView.setLayoutManager(manager);
         getUsers(recyclerView);
 
-
         return view;
-    }
-
-    private void updateUser() {
-        Bundle bundle = getArguments();
-        String id = bundle.getString("adminCustomerId");
-        customer.setStatus(Boolean.parseBoolean(bundle.getString("adminCustomerStatus")));
-        reference.child(id).setValue(customer);
     }
 
     private void getUsers(RecyclerView recyclerView) {
