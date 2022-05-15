@@ -44,7 +44,7 @@ public class MainPageFragment extends Fragment {
     }
 
     private void getAdverts(RecyclerView recyclerView) {
-        databaseReference.orderByValue().addValueEventListener(new ValueEventListener() {
+        databaseReference.orderByKey().addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 adverts.clear();

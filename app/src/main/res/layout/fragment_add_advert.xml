@@ -91,6 +91,20 @@
                     tools:ignore="TextContrastCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <Spinner
+                android:id="@+id/category_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/category" />
+
+            <Spinner
+                android:id="@+id/subcategory_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/sub_category" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/advert_image"
                 style="@style/Widget.Material3.Button.IconButton"

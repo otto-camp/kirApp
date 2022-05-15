@@ -1,7 +1,6 @@
 package com.example.kirapp.activities;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,12 +10,10 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.kirapp.R;
 import com.example.kirapp.models.Customer;
-import com.example.kirapp.utils.Validator.TextInputValidator;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -35,23 +32,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.time.LocalDate;
 import java.util.Objects;
 
-@RequiresApi(api = Build.VERSION_CODES.O)
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LOGIN";
     private static final int RC_SIGN_IN = 9001;
     private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("customers");
-    private TextInputValidator validator;
     private TextInputEditText email, password;
     private FirebaseAuth auth;
     ActivityResultLauncher<Intent> startForResult = getIntentActivityResultLauncher();
     private GoogleSignInClient googleSignInClient;
 
-    public LoginActivity(TextInputValidator validator) {
-        this.validator = validator;
-    }
-
-    public LoginActivity() {
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         FirebaseUser user = auth.getCurrentUser();
                         // FIXME: 24.04.2022
-                        String[] names = Objects.requireNonNull(user.getDisplayName()).split(" ");
+                        String[] names = Objects.requireNonNull(Objects.requireNonNull(user).getDisplayName()).split(" ");
                         Customer customer = new Customer(user.getUid(), names[0], names[1], user.getEmail(), null,
                                 null, null, true, LocalDate.now().toString(), LocalDate.now().toString());
                         databaseReference.child(user.getUid()).setValue(customer);
@@ -124,10 +113,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void reload(FirebaseUser user) {
-        if (user != null) {
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-        } else {
+        if (user == null) {
             Toast.makeText(LoginActivity.this, R.string.login_fail, Toast.LENGTH_SHORT).show();
+        } else if (user.getUid().equals("uUSnmApVoGdGUCWsrbg5CWpzcib2")) {
+            startActivity(new Intent(this, AdminDashboardActivity.class));
+        } else {
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
         }
     }
 
@@ -148,8 +139,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void signInWithEmail(View view) {
-        auth.signInWithEmailAndPassword(
-                email.getText().toString(), password.getText().toString())
+        auth.signInWithEmailAndPassword(Objects.requireNonNull(email.getText()).toString(), Objects.requireNonNull(password.getText()).toString())
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         FirebaseUser user = auth.getCurrentUser();

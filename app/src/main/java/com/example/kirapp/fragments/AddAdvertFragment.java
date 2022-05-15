@@ -1,14 +1,18 @@
 package com.example.kirapp.fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.kirapp.R;
@@ -32,10 +36,11 @@ public class AddAdvertFragment extends Fragment {
     private TextInputEditText etName, etDescription, etPrice;
     private MaterialButton submit, imageBtn;
     private ImageView imageView;
+    private Spinner categorySpinner, subCategorySpinner;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
         if (user == null) {
             startActivity(new Intent(getContext(), LoginActivity.class));
         }
@@ -52,6 +57,11 @@ public class AddAdvertFragment extends Fragment {
         submit = view.findViewById(R.id.advert_add_button);
         imageBtn = view.findViewById(R.id.advert_image);
         imageView = view.findViewById(R.id.advert_selected_image);
+        categorySpinner = view.findViewById(R.id.category_spinner);
+        subCategorySpinner = view.findViewById(R.id.subcategory_spinner);
+
+        categorySpinner.setOnItemSelectedListener(categoryItemSelectedListener());
+        subCategorySpinner.setOnItemSelectedListener(subCategoryItemSelectedListener());
 
         imageBtn.setOnClickListener(view1 -> startActivity(new Intent(getContext(), ImageSelectorActivity.class)));
         submit.setOnClickListener(this::submitAdvert);
@@ -62,6 +72,36 @@ public class AddAdvertFragment extends Fragment {
         }
 
         return view;
+    }
+
+    @NonNull
+    private AdapterView.OnItemSelectedListener subCategoryItemSelectedListener() {
+        return new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        };
+    }
+
+    @NonNull
+    private AdapterView.OnItemSelectedListener categoryItemSelectedListener() {
+        return new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        };
     }
 
     private void submitAdvert(View view) {

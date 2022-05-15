@@ -73,4 +73,12 @@
     <string name="email_isnot_valid">Email is not valid</string>
     <string name="password_isnot_valid">Password is not valid</string>
     <string name="bookmarks">Bookmarks</string>
+    <string name="list_all_users">List all users</string>
+    <string name="list_all_adverts">List all adverts</string>
+    <string name="admin_customer_image">admin_customer_image</string>
+    <string name="gender">Gender</string>
+    <string name="reset">Reset Image</string>
+    <string name="update">Update</string>
+    <string name="admin_panel">Admin panel</string>
+    <string name="change_status">Change Status</string>
 </resources>

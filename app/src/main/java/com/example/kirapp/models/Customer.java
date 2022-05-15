@@ -13,6 +13,7 @@ public class Customer {
     private boolean status;
     private String createdAt;
     private String updatedAt;
+    private String image;
 
     public Customer(String firstname, String lastname, String email, String birthDate,
                     String phoneNumber, String gender, boolean status,
@@ -45,6 +46,14 @@ public class Customer {
 
     public Customer() {
 
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     @NonNull

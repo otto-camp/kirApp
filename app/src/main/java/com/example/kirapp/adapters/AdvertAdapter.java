@@ -55,11 +55,7 @@ public class AdvertAdapter extends RecyclerView.Adapter<AdvertAdapter.ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView advertName, advertPrice;
         private final ImageView advertImage, userPP;
-        private final MaterialButton categoryBtn;
-        private final MaterialButton subCategoryBtn;
-        private final MaterialButton userMessageBtn;
-        private final MaterialButton bookmarkBtn;
-
+        private final MaterialButton categoryBtn, subCategoryBtn, userMessageBtn, bookmarkBtn;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

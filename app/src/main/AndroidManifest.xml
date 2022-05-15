@@ -21,13 +21,14 @@
         android:roundIcon="@mipmap/ic_blue_2_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KirApp">
-
+        <activity
+            android:name=".activities.AdminDashboardActivity"
+            android:exported="false" />
         <activity android:name=".utils.ImageSelectorActivity" />
         <activity android:name=".utils.CameraActivity" />
         <activity android:name=".activities.ForgotPasswordActivity" />
         <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.RegisterActivity" />
-
         <activity
             android:name=".activities.MainActivity"
             android:exported="true">

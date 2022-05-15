@@ -22,9 +22,11 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/ic_bookmark.xml" value="0.178" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/ic_bookmark_filled.xml" value="0.178" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/ic_chat_bubble.xml" value="0.173" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/ic_code.xml" value="0.232" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/ic_google.xml" value="0.18" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/ic_green_1_background.xml" value="0.2605" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/ic_green_2_background.xml" value="0.2605" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/ic_green_3_background.xml" value="0.232" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/ic_green_sphere_background.xml" value="0.2605" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/ic_heart.xml" value="0.1035" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/ic_home.xml" value="0.173" />
@@ -33,11 +35,13 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/ic_person.xml" value="0.173" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/ic_plus.xml" value="0.173" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/ic_plus_circled.xml" value="0.173" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/ic_reset.xml" value="0.232" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/ic_search.xml" value="0.1035" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/profile_background.xml" value="0.2415" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/drawable/register_gradient_background.xml" value="0.2605" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout-w1240dp/asd.xml" value="0.15495314591700135" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout-w936dp/asd.xml" value="0.19140625" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/activity_admin_dashboard.xml" value="0.33" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/activity_camera.xml" value="0.12760416666666666" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/activity_forgot_password.xml" value="0.33" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/activity_image_selector.xml" value="0.14" />
@@ -47,10 +51,14 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/adapter_customer_list.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/advert_item.xml" value="0.33" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/asd.xml" value="0.19794784095767423" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/category_item.xml" value="0.20949123557075675" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/customer_item.xml" value="0.33" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/fragment_add_advert.xml" value="0.25" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/fragment_advert_details.xml" value="0.25" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/fragment_camera.xml" value="0.12760416666666666" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/fragment_code.xml" value="0.19421323820848196" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/fragment_list_all_adverts.xml" value="0.19623770842240273" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/fragment_list_all_users.xml" value="0.19623770842240273" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/fragment_main_page.xml" value="0.25" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/fragment_message.xml" value="0.12760416666666666" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/fragment_new_password.xml" value="0.18351169242964724" />
@@ -66,6 +74,7 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/register_page.xml" value="0.2" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/layout/toolbar.xml" value="0.4666666666666667" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/menu/bottom_appbar.xml" value="0.25" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/menu/bottom_appbar_admin.xml" value="0.20778110303548525" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/menu/bottom_navbar.xml" value="0.33" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/mipmap-anydpi-v26/ic_blue_1.xml" value="0.2235" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/kirApp/app/src/main/res/mipmap-anydpi-v26/ic_blue_1_round.xml" value="0.2235" />
