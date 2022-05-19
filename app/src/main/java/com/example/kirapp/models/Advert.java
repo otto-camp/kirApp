@@ -12,6 +12,7 @@ public class Advert {
     private String subCategory;
     private double price;
     private boolean status;
+    private String image;
 
     public Advert() {
     }
@@ -37,6 +38,14 @@ public class Advert {
         this.status = status;
         this.category = category;
         this.subCategory = subCategory;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getCategory() {

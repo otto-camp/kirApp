@@ -5,8 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".fragments.profile.MyAdvertsFragment">
 
-<androidx.recyclerview.widget.RecyclerView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/user_my_adverts_recyler_view"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/user_my_adverts_recyler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="48dp" />
 </LinearLayout>
