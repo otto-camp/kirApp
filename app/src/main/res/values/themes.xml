@@ -73,5 +73,9 @@
         <item name="android:textStyle">bold</item>
         <item name="iconTint">@color/black_100</item>
     </style>
+    <style name="Theme.KirApp.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 
 </resources>

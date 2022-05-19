@@ -3,7 +3,6 @@ package com.example.kirapp.activities;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import com.example.kirapp.R;
 import com.example.kirapp.fragments.AddAdvertFragment;
@@ -13,8 +12,6 @@ import com.example.kirapp.fragments.ProfileFragment;
 import com.example.kirapp.fragments.SearchFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -30,23 +27,22 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView.setSelectedItemId(R.id.mainPageFragment);
         bottomNavigationView.setOnItemSelectedListener(item -> {
-                    Fragment fragment = null;
                     if (item.getItemId() == R.id.mainPageFragment) {
-                        fragment = new MainPageFragment();
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.main_frame_layout, new MainPageFragment()).commit();
                     }
                     if (item.getItemId() == R.id.searchFragment) {
-                        fragment = new SearchFragment();
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.main_frame_layout, new SearchFragment()).commit();
                     }
                     if (item.getItemId() == R.id.profileFragment) {
-                        fragment = new ProfileFragment();
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.main_frame_layout, new ProfileFragment()).commit();
                     }
                     if (item.getItemId() == R.id.messageFragment) {
-                        fragment = new MessageFragment();
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.main_frame_layout, new MessageFragment()).commit();
                     }
-
-                    getSupportFragmentManager()
-                            .beginTransaction()
-                            .replace(R.id.main_frame_layout, Objects.requireNonNull(fragment)).commit();
                     return true;
                 }
         );
@@ -54,8 +50,6 @@ public class MainActivity extends AppCompatActivity {
                 .beginTransaction()
                 .replace(R.id.main_frame_layout, new AddAdvertFragment())
                 .commit());
-
-
     }
 }
 

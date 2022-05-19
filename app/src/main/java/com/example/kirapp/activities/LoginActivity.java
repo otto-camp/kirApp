@@ -115,7 +115,7 @@ public class LoginActivity extends AppCompatActivity {
     private void reload(FirebaseUser user) {
         if (user == null) {
             Toast.makeText(LoginActivity.this, R.string.login_fail, Toast.LENGTH_SHORT).show();
-        } else if (user.getUid().equals("uUSnmApVoGdGUCWsrbg5CWpzcib2")) {
+        } else if (user.getUid().equals("admin1")) {
             startActivity(new Intent(this, AdminDashboardActivity.class));
         } else {
             startActivity(new Intent(LoginActivity.this, MainActivity.class));

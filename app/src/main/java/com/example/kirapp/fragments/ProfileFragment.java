@@ -1,6 +1,5 @@
 package com.example.kirapp.fragments;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,9 +9,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.example.kirapp.R;
 import com.example.kirapp.activities.LoginActivity;
@@ -41,8 +39,8 @@ public class ProfileFragment extends Fragment {
     private MaterialButton signOut, editProfile, myAdverts, bookmarks, settings;
 
     @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         if (user == null) {
             startActivity(new Intent(getContext(), LoginActivity.class));
         }
@@ -69,33 +67,22 @@ public class ProfileFragment extends Fragment {
     }
 
     private void buttonInit() {
-        FragmentManager manager = requireActivity().getSupportFragmentManager();
-
         signOut.setOnClickListener(v -> {
             auth.signOut();
             startActivity(new Intent(getContext(), LoginActivity.class));
         });
 
-        editProfile.setOnClickListener(v -> {
-            FragmentTransaction transaction = manager.beginTransaction();
-            transaction.replace(R.id.profile_fragment_layout, new EditProfileFragment()).addToBackStack(null).commit();
+        editProfile.setOnClickListener(v -> requireActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.main_frame_layout, new EditProfileFragment()).addToBackStack(null).commit());
 
-        });
+        myAdverts.setOnClickListener(v -> requireActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.main_frame_layout, new MyAdvertsFragment()).addToBackStack(null).commit());
 
-        myAdverts.setOnClickListener(v -> {
-            FragmentTransaction transaction = manager.beginTransaction();
-            transaction.replace(R.id.profile_fragment_layout, new MyAdvertsFragment()).addToBackStack(null).commit();
-        });
+        bookmarks.setOnClickListener(v -> requireActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.main_frame_layout, new BookmarksFragment()).addToBackStack(null).commit());
 
-        bookmarks.setOnClickListener(v -> {
-            FragmentTransaction transaction = manager.beginTransaction();
-            transaction.replace(R.id.profile_fragment_layout, new BookmarksFragment()).addToBackStack(null).commit();
-        });
-
-        settings.setOnClickListener(v -> {
-            FragmentTransaction transaction = manager.beginTransaction();
-            transaction.replace(R.id.profile_fragment_layout, new SettingsFragment()).addToBackStack(null).commit();
-        });
+        settings.setOnClickListener(v -> requireActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.main_frame_layout, new SettingsFragment()).addToBackStack(null).commit());
     }
 
     private void getProfile(TextView tName, TextView tCreatedAt, TextView tAdvertCount) {
