@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class AdminDashboardActivity extends AppCompatActivity {
     private FirebaseUser user;
     private FirebaseAuth auth;
-    private MaterialButton listAdvertsBtn, listUsersBtn;
+    private MaterialButton listAdvertsBtn, listUsersBtn, quitBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,18 +23,17 @@ public class AdminDashboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_dashboard);
         listAdvertsBtn = findViewById(R.id.list_all_adverts_btn);
         listUsersBtn = findViewById(R.id.list_all_users_btn);
+        quitBtn = findViewById(R.id.admin_quit_btn);
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
 
         listUsersBtn.setOnClickListener(v -> getSupportFragmentManager().beginTransaction()
                 .replace(R.id.admin_frame_layout, new ListAllUsersFragment()).commit());
-        listAdvertsBtn.setOnClickListener(v2 -> getSupportFragmentManager().beginTransaction()
+        listAdvertsBtn.setOnClickListener(v -> getSupportFragmentManager().beginTransaction()
                 .replace(R.id.admin_frame_layout, new ListAllAdvertsFragment()).commit());
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        startActivity(new Intent(this, RegisterActivity.class));
+        quitBtn.setOnClickListener(v -> {
+            auth.signOut();
+            startActivity(new Intent(this, LoginActivity.class));
+        });
     }
 }

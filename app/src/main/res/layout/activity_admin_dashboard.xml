@@ -22,6 +22,14 @@
         android:layout_marginTop="16dp"
         android:text="@string/list_all_users" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/admin_quit_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/red"
+        android:text="@string/sign_out" />
 
     <FrameLayout
         android:id="@+id/admin_frame_layout"

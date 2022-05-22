@@ -10,8 +10,6 @@ public class Advert {
     private double price;
     private boolean status;
     private String image;
-    private String customerName;
-    private String customerImage;
 
     public Advert() {
     }
@@ -35,22 +33,6 @@ public class Advert {
         this.price = price;
         this.status = status;
         this.category = category;
-    }
-
-    public String getCustomerImage() {
-        return customerImage;
-    }
-
-    public void setCustomerImage(String customerImage) {
-        this.customerImage = customerImage;
-    }
-
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
     }
 
     public String getImage() {

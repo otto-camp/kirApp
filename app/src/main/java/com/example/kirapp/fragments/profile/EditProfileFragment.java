@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.example.kirapp.R;
+import com.example.kirapp.fragments.ProfileFragment;
 import com.example.kirapp.models.Customer;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.datepicker.MaterialDatePicker;
@@ -102,13 +103,14 @@ public class EditProfileFragment extends Fragment {
     }
 
     private void updateUser(View view) {
-        customer.setFirstname(etFname.getText().toString());
-        customer.setLastname(etLname.getText().toString());
+        customer.setFirstname(Objects.requireNonNull(etFname.getText()).toString());
+        customer.setLastname(Objects.requireNonNull(etLname.getText()).toString());
         customer.setBirthDate(birthdateEditBtn.getText().toString());
-        customer.setGender(etGender.getText().toString());
-        customer.setPhoneNumber(etPhone.getText().toString());
+        customer.setGender(Objects.requireNonNull(etGender.getText()).toString());
+        customer.setPhoneNumber(Objects.requireNonNull(etPhone.getText()).toString());
         customer.setUpdatedAt(LocalDate.now().toString());
         reference.child(user.getUid()).setValue(customer);
+        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout, new ProfileFragment()).commit();
     }
 
     public void selectImage() {

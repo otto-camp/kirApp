@@ -50,13 +50,13 @@ public class LoginActivity extends AppCompatActivity {
         email = findViewById(R.id.user_email);
         password = findViewById(R.id.user_password);
         MaterialButton login = findViewById(R.id.login_btn);
-        MaterialButton loginGoogle = findViewById(R.id.login_google_btn);
+        //MaterialButton loginGoogle = findViewById(R.id.login_google_btn);
         MaterialButton forgotPassword = findViewById(R.id.forgot_password_btn);
         MaterialButton register = findViewById(R.id.register_btn);
         login.setOnClickListener(this::signInWithEmail);
         register.setOnClickListener(this::register);
         forgotPassword.setOnClickListener(this::forgotPassword);
-        loginGoogle.setOnClickListener(this::signInWithGoogle);
+        //loginGoogle.setOnClickListener(this::signInWithGoogle);
 
         GoogleSignInOptions signInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -115,7 +115,7 @@ public class LoginActivity extends AppCompatActivity {
     private void reload(FirebaseUser user) {
         if (user == null) {
             Toast.makeText(LoginActivity.this, R.string.login_fail, Toast.LENGTH_SHORT).show();
-        } else if (user.getUid().equals("admin1")) {
+        } else if (user.getUid().equals("eV7ZvoMfJMdC7LWV1iDZuexoQU42")) {
             startActivity(new Intent(this, AdminDashboardActivity.class));
         } else {
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
@@ -144,6 +144,8 @@ public class LoginActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         FirebaseUser user = auth.getCurrentUser();
                         if (Objects.requireNonNull(user).isEmailVerified()) {
+                            reload(user);
+                        } else if (email.getText().toString().equals("admin@gmail.com")) {
                             reload(user);
                         } else {
                             user.sendEmailVerification();

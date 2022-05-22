@@ -15,6 +15,8 @@ import com.bumptech.glide.Glide;
 import com.example.kirapp.R;
 import com.example.kirapp.models.Advert;
 import com.example.kirapp.models.Customer;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,21 +27,21 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 
-public class AdvertAdapter extends RecyclerView.Adapter<AdvertAdapter.ViewHolder> {
-    private final ArrayList<Advert> adverts;
+public class SearchAdvertAdapter extends FirebaseRecyclerAdapter<Advert, SearchAdvertAdapter.ViewHolder> {
     private final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("customers");
-    private Context context;
+    private ArrayList<Advert> adverts;
     private String id;
+    private Context context;
 
-    public AdvertAdapter(ArrayList<Advert> adverts, Context context, String id) {
+    public SearchAdvertAdapter(@NonNull FirebaseRecyclerOptions<Advert> options, ArrayList<Advert> adverts, String id, Context context) {
+        super(options);
         this.adverts = adverts;
-        this.context = context;
         this.id = id;
+        this.context = context;
     }
 
-    public AdvertAdapter(ArrayList<Advert> adverts, Context context) {
-        this.adverts = adverts;
-        this.context = context;
+    public SearchAdvertAdapter(@NonNull FirebaseRecyclerOptions<Advert> options) {
+        super(options);
     }
 
     @NonNull
@@ -51,7 +53,7 @@ public class AdvertAdapter extends RecyclerView.Adapter<AdvertAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Advert model) {
         Double p = adverts.get(position).getPrice();
         NumberFormat format = NumberFormat.getCurrencyInstance();
 
@@ -78,10 +80,6 @@ public class AdvertAdapter extends RecyclerView.Adapter<AdvertAdapter.ViewHolder
         Glide.with(context).load(adverts.get(position).getImage()).into(holder.advertImage);
     }
 
-    @Override
-    public int getItemCount() {
-        return adverts.size();
-    }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView advertName, advertPrice, userName, advertDescription;

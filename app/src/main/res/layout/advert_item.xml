@@ -27,18 +27,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="0dp"
                 android:contentDescription="@string/advert_images"
-                android:maxHeight="200dp"
-                android:src="@mipmap/ic_blue_1" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/advert_bookmark"
-                style="@style/Widget.Material3.Button.IconButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@id/advert_image"
-                android:layout_alignEnd="@id/advert_image"
-                android:contentDescription="@string/bookmark"
-                app:icon="@drawable/ic_bookmark" />
+                android:maxHeight="200dp" />
 
             <TextView
                 android:id="@+id/advert_name"
@@ -91,7 +80,6 @@
                 android:layout_height="60dp"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="8dp"
-                android:src="@mipmap/ic_blue_2"
                 app:shapeAppearanceOverlay="@style/imageViewRounded" />
 
             <TextView

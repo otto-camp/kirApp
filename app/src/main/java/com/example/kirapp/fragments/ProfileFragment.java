@@ -15,7 +15,6 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.example.kirapp.R;
 import com.example.kirapp.activities.LoginActivity;
-import com.example.kirapp.fragments.profile.BookmarksFragment;
 import com.example.kirapp.fragments.profile.CredentialsFragment;
 import com.example.kirapp.fragments.profile.EditProfileFragment;
 import com.example.kirapp.fragments.profile.MyAdvertsFragment;
@@ -39,7 +38,7 @@ public class ProfileFragment extends Fragment {
     private final DatabaseReference customerReference = FirebaseDatabase.getInstance().getReference();
     private Customer customer = new Customer();
     private TextView tName, tCreatedAt, tAdvertCount;
-    private MaterialButton signOut, editProfile, credentials, myAdverts, bookmarks, settings;
+    private MaterialButton signOut, editProfile, credentials, myAdverts, settings;
     private ShapeableImageView userImage;
 
     @Override
@@ -63,7 +62,6 @@ public class ProfileFragment extends Fragment {
         editProfile = view.findViewById(R.id.profile_edit);
         credentials = view.findViewById(R.id.user_credentials);
         myAdverts = view.findViewById(R.id.user_advert_list);
-        bookmarks = view.findViewById(R.id.user_advert_bookmark);
         settings = view.findViewById(R.id.user_settings);
 
         getProfile(tName, tCreatedAt, tAdvertCount);
@@ -86,19 +84,16 @@ public class ProfileFragment extends Fragment {
         myAdverts.setOnClickListener(v -> requireActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.main_frame_layout, new MyAdvertsFragment()).addToBackStack(null).commit());
 
-        bookmarks.setOnClickListener(v -> requireActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.main_frame_layout, new BookmarksFragment()).addToBackStack(null).commit());
-
         settings.setOnClickListener(v -> requireActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.main_frame_layout, new SettingsFragment()).addToBackStack(null).commit());
     }
 
     private void getProfile(TextView tName, TextView tCreatedAt, TextView tAdvertCount) {
-        customerReference.child("customers").child(Objects.requireNonNull(user).getUid()).addValueEventListener(new ValueEventListener() {
+        customerReference.child("customers").child(user.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 customer = snapshot.getValue(Customer.class);
-                Glide.with(getContext()).load(customer.getImage()).into(userImage);
+                Glide.with(requireContext()).load(customer.getImage()).into(userImage);
                 String name = Objects.requireNonNull(customer).getFirstname() + " " + customer.getLastname();
                 String createdAt = getString(R.string.createdAt) + customer.getCreatedAt();
                 tName.setText(name);

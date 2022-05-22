@@ -101,13 +101,6 @@
                 android:text="@string/advert_list" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/user_advert_bookmark"
-                style="@style/ElevatedButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/bookmarks" />
-
-            <com.google.android.material.button.MaterialButton
                 android:id="@+id/user_settings"
                 style="@style/ElevatedButton"
                 android:layout_width="match_parent"

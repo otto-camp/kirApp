@@ -124,6 +124,7 @@ public class AddAdvertFragment extends Fragment {
         databaseReference.child(Objects.requireNonNull(user).getUid()).child(advert.getId()).setValue(advert);
         uploadImage();
         Toast.makeText(getContext(), R.string.advert_added, Toast.LENGTH_LONG).show();
+        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout, new MainPageFragment()).commit();
     }
 
     private void uploadImage() {
