@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.kirapp.R;
 import com.example.kirapp.models.Advert;
 
@@ -34,7 +35,7 @@ public class ProfileAdvertAdapter extends RecyclerView.Adapter<ProfileAdvertAdap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.advertImage.setImageResource(R.mipmap.ic_blue_1);
+        Glide.with(context).load(adverts.get(position).getImage()).into(holder.advertImage);
         holder.tName.setText(adverts.get(position).getName());
         holder.tPrice.setText(String.valueOf(adverts.get(position).getPrice()));
     }

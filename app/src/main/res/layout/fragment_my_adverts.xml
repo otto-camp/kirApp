@@ -8,6 +8,5 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/user_my_adverts_recyler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="48dp" />
+        android:layout_height="match_parent"/>
 </LinearLayout>

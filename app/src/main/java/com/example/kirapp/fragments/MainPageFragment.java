@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -26,7 +27,8 @@ import java.util.Map;
 public class MainPageFragment extends Fragment {
     private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("adverts");
     private final ArrayList<Advert> adverts = new ArrayList<>();
-    private final AdvertAdapter advertAdapter = new AdvertAdapter(adverts, getContext());
+    private  AdvertAdapter advertAdapter;
+    private final Map<String, Advert> map = new HashMap<>();
     private Advert advert = new Advert();
 
     @Override
@@ -39,17 +41,16 @@ public class MainPageFragment extends Fragment {
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(manager);
         getAdverts(recyclerView);
-
         return view;
     }
 
     private void getAdverts(RecyclerView recyclerView) {
-        databaseReference.orderByKey().addValueEventListener(new ValueEventListener() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 adverts.clear();
-                Map<String, Advert> map = new HashMap<>();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    advertAdapter = new AdvertAdapter(adverts, getContext(),dataSnapshot.getKey());
                     for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                         advert = dataSnapshot1.getValue(Advert.class);
                         map.put(dataSnapshot1.getKey(), advert);
@@ -61,6 +62,7 @@ public class MainPageFragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getContext(), "Data couldn't fetched", Toast.LENGTH_SHORT).show();
             }
         });
     }

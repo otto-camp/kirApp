@@ -1,127 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".fragments.profile.EditProfileFragment">
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginVertical="32dp"
-        android:minWidth="150dp"
-        android:minHeight="150dp"
-        android:src="@mipmap/ic_blue_2"
-        app:shapeAppearanceOverlay="@style/imageViewRounded" />
-
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="-64dp"
-        android:layout_marginEnd="-64dp"
-        android:backgroundTint="@android:color/transparent"
-        app:icon="@drawable/ic_plus"
-        app:iconSize="32dp"
-        app:iconTint="?attr/colorSecondary"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <TextView
-        android:id="@+id/ept_fname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:text="@string/firstname" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:hint="@string/firstname"
-        android:minHeight="48dp"
-        app:boxStrokeColor="@color/beyaz2"
-        app:boxStrokeWidth="2dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/epet_fname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            tools:ignore="DuplicateSpeakableTextCheck" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <androidx.legacy.widget.Space
-        android:layout_width="match_parent"
-        android:layout_height="30dp" />
-
-    <TextView
-        android:id="@+id/ept_lname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:text="@string/lastname" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:hint="@string/lastname"
-        android:minHeight="48dp"
-        app:boxStrokeColor="@color/beyaz2"
-        app:boxStrokeWidth="2dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/epet_lname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            tools:ignore="DuplicateSpeakableTextCheck" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <androidx.legacy.widget.Space
-        android:layout_width="match_parent"
-        android:layout_height="30dp" />
-
-    <TextView
-        android:id="@+id/ept_phone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:text="@string/phone" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ep_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginVertical="32dp"
+            android:minWidth="150dp"
+            android:minHeight="150dp"
+            app:shapeAppearanceOverlay="@style/imageViewRounded" />
 
-        <com.hbb20.CountryCodePicker
-            android:id="@+id/ep_ccp"
-            style="@style/Theme.KirApp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:ccp_arrowColor="?attr/colorOnSecondary"
-            app:ccp_autoDetectCountry="true"
-            app:ccp_contentColor="?attr/colorOnSecondary"
-            app:ccp_countryAutoDetectionPref="SIM_LOCALE_NETWORK"
-            app:ccp_showFlag="true"
-            app:ccp_textGravity="LEFT" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/ep_image_edit"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="-64dp"
+            android:layout_marginEnd="-64dp"
+            android:backgroundTint="@color/transparent_white"
+            app:icon="@drawable/ic_plus"
+            app:iconSize="32dp"
+            app:iconGravity="textTop"
+            android:paddingBottom="1dp"
+            app:iconTint="?attr/colorPrimaryVariant"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:hint="@string/firstname"
+            android:minHeight="48dp"
+            app:boxStrokeColor="@color/beyaz2"
+            app:boxStrokeWidth="2dp"
+            app:hintTextColor="?attr/colorOnSecondary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/epet_fname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                tools:ignore="DuplicateSpeakableTextCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.legacy.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:hint="@string/lastname"
+            android:minHeight="48dp"
+            app:boxStrokeColor="@color/beyaz2"
+            app:boxStrokeWidth="2dp"
+            app:hintTextColor="?attr/colorOnSecondary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/epet_lname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                tools:ignore="DuplicateSpeakableTextCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.legacy.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
             android:hint="@string/phone"
             android:minHeight="48dp"
             app:boxStrokeColor="@color/beyaz2"
-            app:boxStrokeWidth="2dp">
+            app:boxStrokeWidth="2dp"
+            app:hintTextColor="?attr/colorOnSecondary">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/epet_phone"
@@ -132,64 +103,47 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <androidx.legacy.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:hint="@string/gender"
+            android:minHeight="48dp"
+            app:boxStrokeColor="@color/beyaz2"
+            app:boxStrokeWidth="2dp"
+            app:hintTextColor="?attr/colorOnSecondary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/epet_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textShortMessage" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/epet_birthdate"
+            style="@style/ElevatedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/birth_date" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/ep_submit"
+            style="@style/SubmitButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="64dp"
+            android:text="@string/update" />
     </LinearLayout>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/epet_birthdate"
-        style="@style/ElevatedButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="@string/birth_date" />
-
-    <RadioGroup
-        android:id="@+id/epet_gender"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/epet_radio_male"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/male"
-            android:textSize="18sp" />
-
-        <RadioButton
-            android:id="@+id/epet_radio_female"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
-            android:text="@string/female"
-            android:textSize="18sp" />
-
-        <RadioButton
-            android:id="@+id/epet_radio_other"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
-            android:text="@string/other"
-            android:textSize="18sp" />
-
-    </RadioGroup>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/ep_submit"
-        style="@style/SubmitButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="64dp"
-        android:text="@string/update" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/back_btn"
-        style="@style/TextButtonBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-</LinearLayout>
+</ScrollView>

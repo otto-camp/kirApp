@@ -1,7 +1,5 @@
 package com.example.kirapp.models;
 
-import androidx.annotation.NonNull;
-
 public class Advert {
     private String id;
     private String name;
@@ -9,15 +7,16 @@ public class Advert {
     private String updatedAt;
     private String description;
     private String category;
-    private String subCategory;
     private double price;
     private boolean status;
     private String image;
+    private String customerName;
+    private String customerImage;
 
     public Advert() {
     }
 
-    public Advert(String id, String name, String createdAt, String updatedAt, String description, double price, boolean status, String category, String subCategory) {
+    public Advert(String id, String name, String createdAt, String updatedAt, String description, double price, boolean status, String category) {
         this.id = id;
         this.name = name;
         this.createdAt = createdAt;
@@ -26,10 +25,9 @@ public class Advert {
         this.price = price;
         this.status = status;
         this.category = category;
-        this.subCategory = subCategory;
     }
 
-    public Advert(String name, String createdAt, String updatedAt, String description, double price, boolean status, String category, String subCategory) {
+    public Advert(String name, String createdAt, String updatedAt, String description, double price, boolean status, String category) {
         this.name = name;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -37,7 +35,22 @@ public class Advert {
         this.price = price;
         this.status = status;
         this.category = category;
-        this.subCategory = subCategory;
+    }
+
+    public String getCustomerImage() {
+        return customerImage;
+    }
+
+    public void setCustomerImage(String customerImage) {
+        this.customerImage = customerImage;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
     public String getImage() {
@@ -54,28 +67,6 @@ public class Advert {
 
     public void setCategory(String category) {
         this.category = category;
-    }
-
-    public String getSubCategory() {
-        return subCategory;
-    }
-
-    public void setSubCategory(String subCategory) {
-        this.subCategory = subCategory;
-    }
-
-    @NonNull
-    @Override
-    public String toString() {
-        return "Advert{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", status=" + status +
-                '}';
     }
 
     public String getId() {

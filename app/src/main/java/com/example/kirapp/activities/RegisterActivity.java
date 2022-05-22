@@ -82,6 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
                             customer.setStatus(true);
                             customer.setCreatedAt(createdAt);
                             customer.setUpdatedAt(updatedAt);
+                            customer.setImage("https://firebasestorage.googleapis.com/v0/b/kirapp-a2f50.appspot.com/o/images%2Fresim_2022-05-21_221935495.png?alt=media&token=bc4be4aa-ca7a-4011-95e2-f673a26f3a42");
                             user = auth.getCurrentUser();
                             Objects.requireNonNull(user).sendEmailVerification();
                             customer.setId(user.getUid());

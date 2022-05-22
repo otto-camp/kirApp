@@ -85,4 +85,16 @@
     <string name="delete_account">Delete Account</string>
     <string name="firstname">Firstname</string>
     <string name="lastname">Lastname</string>
+    <string name="credentials">Credentials</string>
+    <string-array name="categories">
+        <item>Other</item>
+        <item>Automotive Equipment</item>
+        <item>Motorcycle Equipment</item>
+        <item>Marine Equipment</item>
+        <item>Computers</item>
+        <item>Cell Phones</item>
+        <item>Cameras &#38; Photographic Equipment</item>
+        <item>Home Electronics</item>
+        <item>Games &#38; Consoles</item>
+    </string-array>
 </resources>

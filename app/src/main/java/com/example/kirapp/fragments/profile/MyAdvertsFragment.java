@@ -54,7 +54,7 @@ public class MyAdvertsFragment extends Fragment {
     }
 
     private void getAdverts(RecyclerView recyclerView) {
-        reference.child(user.getUid()).orderByKey().addValueEventListener(new ValueEventListener() {
+        reference.child(user.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 adverts.clear();

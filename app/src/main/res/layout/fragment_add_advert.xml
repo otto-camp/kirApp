@@ -37,7 +37,7 @@
                 app:counterEnabled="true"
                 app:counterMaxLength="60"
                 app:helperTextTextColor="@android:color/holo_red_dark"
-                app:hintTextColor="@color/black">
+                app:hintTextColor="?attr/colorOnSecondary">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/advert_name"
@@ -60,7 +60,7 @@
                 app:counterEnabled="true"
                 app:counterMaxLength="255"
                 app:helperTextTextColor="@android:color/holo_red_dark"
-                app:hintTextColor="@color/black">
+                app:hintTextColor="?attr/colorOnSecondary">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/advert_description"
@@ -81,7 +81,7 @@
                 app:boxStrokeColor="@color/beyaz2"
                 app:boxStrokeWidth="2dp"
                 app:helperTextTextColor="@android:color/holo_red_dark"
-                app:hintTextColor="@color/black">
+                app:hintTextColor="?attr/colorOnSecondary">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/advert_price"
@@ -97,13 +97,6 @@
                 android:layout_height="48dp"
                 android:layout_margin="16dp"
                 android:contentDescription="@string/category" />
-
-            <Spinner
-                android:id="@+id/subcategory_spinner"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="16dp"
-                android:contentDescription="@string/sub_category" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/advert_image"

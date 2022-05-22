@@ -27,8 +27,7 @@
             android:maxWidth="150dp"
             android:maxHeight="150dp"
             android:scaleType="fitXY"
-            app:shapeAppearanceOverlay="@style/imageViewRounded"
-            app:srcCompat="@mipmap/ic_blue_2" />
+            app:shapeAppearanceOverlay="@style/imageViewRounded" />
 
         <TextView
             android:id="@+id/user_name"
@@ -86,6 +85,13 @@
                 android:layout_marginHorizontal="32dp"
                 android:layout_marginVertical="8dp"
                 android:text="@string/edit_profile" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/user_credentials"
+                style="@style/ElevatedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/credentials" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/user_advert_list"

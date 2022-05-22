@@ -12,14 +12,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
 import com.example.kirapp.R;
 import com.example.kirapp.activities.LoginActivity;
 import com.example.kirapp.fragments.profile.BookmarksFragment;
+import com.example.kirapp.fragments.profile.CredentialsFragment;
 import com.example.kirapp.fragments.profile.EditProfileFragment;
 import com.example.kirapp.fragments.profile.MyAdvertsFragment;
 import com.example.kirapp.fragments.profile.SettingsFragment;
 import com.example.kirapp.models.Customer;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.imageview.ShapeableImageView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -36,7 +39,8 @@ public class ProfileFragment extends Fragment {
     private final DatabaseReference customerReference = FirebaseDatabase.getInstance().getReference();
     private Customer customer = new Customer();
     private TextView tName, tCreatedAt, tAdvertCount;
-    private MaterialButton signOut, editProfile, myAdverts, bookmarks, settings;
+    private MaterialButton signOut, editProfile, credentials, myAdverts, bookmarks, settings;
+    private ShapeableImageView userImage;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,11 +55,13 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
+        userImage = view.findViewById(R.id.user_image);
         tName = view.findViewById(R.id.user_name);
         tCreatedAt = view.findViewById(R.id.user_created_at);
         tAdvertCount = view.findViewById(R.id.user_advert_count);
         signOut = view.findViewById(R.id.profile_sign_out);
         editProfile = view.findViewById(R.id.profile_edit);
+        credentials = view.findViewById(R.id.user_credentials);
         myAdverts = view.findViewById(R.id.user_advert_list);
         bookmarks = view.findViewById(R.id.user_advert_bookmark);
         settings = view.findViewById(R.id.user_settings);
@@ -74,6 +80,8 @@ public class ProfileFragment extends Fragment {
 
         editProfile.setOnClickListener(v -> requireActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.main_frame_layout, new EditProfileFragment()).addToBackStack(null).commit());
+        credentials.setOnClickListener(v -> requireActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.main_frame_layout, new CredentialsFragment()).addToBackStack(null).commit());
 
         myAdverts.setOnClickListener(v -> requireActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.main_frame_layout, new MyAdvertsFragment()).addToBackStack(null).commit());
@@ -90,6 +98,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 customer = snapshot.getValue(Customer.class);
+                Glide.with(getContext()).load(customer.getImage()).into(userImage);
                 String name = Objects.requireNonNull(customer).getFirstname() + " " + customer.getLastname();
                 String createdAt = getString(R.string.createdAt) + customer.getCreatedAt();
                 tName.setText(name);

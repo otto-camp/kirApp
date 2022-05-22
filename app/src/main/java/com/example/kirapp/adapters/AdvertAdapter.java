@@ -6,20 +6,36 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.kirapp.R;
 import com.example.kirapp.models.Advert;
+import com.example.kirapp.models.Customer;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class AdvertAdapter extends RecyclerView.Adapter<AdvertAdapter.ViewHolder> {
     private final ArrayList<Advert> adverts;
+    private final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("customers");
     private Context context;
+    private String id;
+
+    public AdvertAdapter(ArrayList<Advert> adverts, Context context, String id) {
+        this.adverts = adverts;
+        this.context = context;
+        this.id = id;
+    }
 
     public AdvertAdapter(ArrayList<Advert> adverts, Context context) {
         this.adverts = adverts;
@@ -41,10 +57,24 @@ public class AdvertAdapter extends RecyclerView.Adapter<AdvertAdapter.ViewHolder
 
         holder.advertName.setText(adverts.get(position).getName());
         holder.advertPrice.setText(format.format(p));
-        holder.advertImage.setImageResource(R.mipmap.ic_blue_2);
-        holder.userPP.setImageResource(R.mipmap.ic_blue_1);
         holder.categoryBtn.setText(adverts.get(position).getCategory());
-        holder.subCategoryBtn.setText(adverts.get(position).getSubCategory());
+        holder.advertDescription.setText(adverts.get(position).getDescription());
+
+        reference.child(id).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Customer customer = snapshot.getValue(Customer.class);
+                holder.userName.setText(customer.getFirstname() + " " + customer.getLastname());
+                Glide.with(context).load(adverts.get(holder.getAbsoluteAdapterPosition()).getCustomerImage()).into(holder.userPP);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(context, "Data couldn't fetched", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        Glide.with(context).load(adverts.get(position).getImage()).into(holder.advertImage);
     }
 
     @Override
@@ -53,9 +83,9 @@ public class AdvertAdapter extends RecyclerView.Adapter<AdvertAdapter.ViewHolder
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView advertName, advertPrice;
+        private final TextView advertName, advertPrice, userName, advertDescription;
         private final ImageView advertImage, userPP;
-        private final MaterialButton categoryBtn, subCategoryBtn, userMessageBtn, bookmarkBtn;
+        private final MaterialButton categoryBtn, userMessageBtn, bookmarkBtn;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -63,10 +93,11 @@ public class AdvertAdapter extends RecyclerView.Adapter<AdvertAdapter.ViewHolder
             advertPrice = itemView.findViewById(R.id.advert_price);
             advertImage = itemView.findViewById(R.id.advert_image);
             userPP = itemView.findViewById(R.id.advert_user_pp);
+            userName = itemView.findViewById(R.id.advert_post_user_name);
             categoryBtn = itemView.findViewById(R.id.advert_category_btn);
-            subCategoryBtn = itemView.findViewById(R.id.advert_subCategory_btn);
             userMessageBtn = itemView.findViewById(R.id.advert_user_message_btn);
             bookmarkBtn = itemView.findViewById(R.id.advert_bookmark);
+            advertDescription = itemView.findViewById(R.id.advert_post_description);
 
             itemView.setTag(itemView);
         }
