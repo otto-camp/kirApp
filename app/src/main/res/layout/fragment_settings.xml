@@ -13,4 +13,11 @@
         android:layout_height="wrap_content"
         android:text="@string/change_theme" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/change_language_btn"
+        style="@style/ElevatedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/change_language" />
+
 </LinearLayout>

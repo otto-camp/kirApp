@@ -89,6 +89,7 @@
     <string name="city">City</string>
     <string name="county">County</string>
     <string name="icon">Icon</string>
+    <string name="change_language">Change Language</string>
     <string-array name="categories">
         <item>Other</item>
         <item>Automotive Equipment</item>
