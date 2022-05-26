@@ -71,9 +71,20 @@ public class AdvertAdapter extends RecyclerView.Adapter<AdvertAdapter.ViewHolder
                 holder.userName.setText(name);
                 Glide.with(context).load(customer.getImage()).into(holder.userPP);
 
-                String number = customer.getPhoneNumber().substring(4);
+                String number = customer.getPhoneNumber();
                 holder.userMessageBtn.setOnClickListener(view -> {
-                    Toast.makeText(context, number, Toast.LENGTH_SHORT).show();
+                    try {
+                        PackageManager packageManager = context.getPackageManager();
+                        packageManager.getPackageInfo("com.whatsapp", PackageManager.GET_ACTIVITIES);
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        String url = "https://api.whatsapp.com/send?phone=" + number;
+                        intent.setData(Uri.parse(url));
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                    } catch (PackageManager.NameNotFoundException e) {
+                        Toast.makeText(context.getApplicationContext(), "Whatsapp app not installed in your phone", Toast.LENGTH_SHORT).show();
+                        e.printStackTrace();
+                    }
                 });
 
             }
