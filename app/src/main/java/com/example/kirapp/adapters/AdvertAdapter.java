@@ -1,6 +1,9 @@
 package com.example.kirapp.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,6 +70,12 @@ public class AdvertAdapter extends RecyclerView.Adapter<AdvertAdapter.ViewHolder
                 String name = customer.getFirstname() + " " + customer.getLastname();
                 holder.userName.setText(name);
                 Glide.with(context).load(customer.getImage()).into(holder.userPP);
+
+                String number = customer.getPhoneNumber().substring(4);
+                holder.userMessageBtn.setOnClickListener(view -> {
+                    Toast.makeText(context, number, Toast.LENGTH_SHORT).show();
+                });
+
             }
 
             @Override

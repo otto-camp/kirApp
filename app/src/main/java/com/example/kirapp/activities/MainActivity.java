@@ -22,7 +22,10 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        if (user.getUid() == null || user.getUid() != null) {
+        if (user!=null &&user.getUid().equals("eV7ZvoMfJMdC7LWV1iDZuexoQU42")) {
+            startActivity(new Intent(this, AdminDashboardActivity.class));
+        } else {
+
             BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
             FloatingActionButton floatingActionButton = findViewById(R.id.add_advert_btn);
 
@@ -51,10 +54,8 @@ public class MainActivity extends AppCompatActivity {
                     .beginTransaction()
                     .replace(R.id.main_frame_layout, new AddAdvertFragment())
                     .commit());
-        } else if (user.getUid().equals("eV7ZvoMfJMdC7LWV1iDZuexoQU42")) {
-            startActivity(new Intent(this, AdminDashboardActivity.class));
-        }
 
+        }
     }
 
 }
