@@ -14,8 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.kirapp.R;
 import com.example.kirapp.adapters.AdvertAdapter;
 import com.example.kirapp.models.Advert;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -52,7 +50,7 @@ public class MainPageFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 adverts.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    advertAdapter = new AdvertAdapter(adverts, getContext());
+                    advertAdapter = new AdvertAdapter(adverts, getContext(),dataSnapshot.getKey());
                     for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                         advert = dataSnapshot1.getValue(Advert.class);
                         map.put(dataSnapshot1.getKey(), advert);
