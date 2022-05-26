@@ -71,7 +71,7 @@ public class AdvertAdapter extends RecyclerView.Adapter<AdvertAdapter.ViewHolder
                 holder.userName.setText(name);
                 Glide.with(context).load(customer.getImage()).into(holder.userPP);
 
-                String number = customer.getPhoneNumber();
+                String number = customer.getPhoneNumber().substring(5);
                 holder.userMessageBtn.setOnClickListener(view -> {
                     try {
                         PackageManager packageManager = context.getPackageManager();
