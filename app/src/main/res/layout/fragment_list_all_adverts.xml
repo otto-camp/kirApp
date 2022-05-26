@@ -5,5 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".fragments.admin.ListAllAdvertsFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/list_all_adverts_recycler_view"/>
 
 </FrameLayout>
